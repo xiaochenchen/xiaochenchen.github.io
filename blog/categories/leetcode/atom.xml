@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: leetcode | XCC]]></title>
+  <link href="http://xiaochenchen.github.io/blog/categories/leetcode/atom.xml" rel="self"/>
+  <link href="http://xiaochenchen.github.io/"/>
+  <updated>2014-03-23T15:47:44-04:00</updated>
+  <id>http://xiaochenchen.github.io/</id>
+  <author>
+    <name><![CDATA[XCC]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[[leetcode] Longest Common Prefix]]></title>
+    <link href="http://xiaochenchen.github.io/blog/2014/03/23/leetcode-longest-common-prefix/"/>
+    <updated>2014-03-23T15:36:43-04:00</updated>
+    <id>http://xiaochenchen.github.io/blog/2014/03/23/leetcode-longest-common-prefix</id>
+    <content type="html"><![CDATA[<p>Problem description:
+Write a function to find the longest common prefix string amongst an array of strings.</p>
+
+<p>Link to the problem:
+<a href="http://oj.leetcode.com/problems/longest-common-prefix/">http://oj.leetcode.com/problems/longest-common-prefix/</a></p>
+
+<p>``` java Longest Common Prefix <a href="http://oj.leetcode.com/problems/longest-common-prefix/">http://oj.leetcode.com/problems/longest-common-prefix/</a> Leetcode Link
+/<em>*
+ * Write a function to find the longest common prefix string amongst an array of strings.
+ *
+ * Solution:
+ *  start from the first char in first string, check if it in all other strings, if not, return
+ *
+ * Created by Maximus on 3/23/14.
+ </em>/
+public class LongestCommonPrefix
+{</p>
+
+<pre><code>public String longestCommonPrefix(String[] strs)
+{
+    // if null input or empty input, return empty string
+    if(strs == null || strs.length == 0)
+    {
+        return "";
+    }
+
+    StringBuilder result = new StringBuilder();
+
+    for(int i = 0; i &lt; strs[0].length(); ++i)
+    {
+        for(int j = 1; j &lt; strs.length; ++j)
+        {
+            // if the current char in strs[0] doesn't exist in any following str
+            if(strs[j].length() &lt;= i || strs[0].charAt(i) != strs[j].charAt(i))
+            {
+                // return current common prefix result
+                return result.toString();
+            }
+        }
+        // if the current char exists in all other strs, append it to common prefix
+        result.append(strs[0].charAt(i));
+    }
+
+    // if all chars in strs[0] are prefix in other strs, return strs[0]
+    return result.toString();
+}
+</code></pre>
+
+<p>}
+```</p>
+]]></content>
+  </entry>
+  
+</feed>
