@@ -3,11 +3,11 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>XCC</title>
+	<title>[leetcode] Remove Nth Node From End of List - XCC</title>
     <meta name="author" content="XCC">
     
-	<meta name="description" content="Published on: Mar 23rd, 2014 Tags: leetcode There is an assumption:
-Given n will always be valid. Also notice that the index start from 1 from the &hellip;">
+	<meta name="description" content="There is an assumption:
+Given n will always be valid. Also notice that the index start from 1 from the end of the list. Two things to pay attention &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -89,40 +89,9 @@ Given n will always be valid. Also notice that the index start from 1 from the &
 <div id="toload">
 <!-- begin toload --> 
     <div id="content" class="inner">
-        
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2014/03/23/leetcode-remove-nth-node-from-end-of-list/">
-		
-			[Leetcode] Remove Nth Node From End of List</a>
-	</h2>
-    <div class="entry-content">
-    <div class="meta">
-      <div class="date">Published on: 
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-03-23T16:28:30-04:00" pubdate data-updated="true">Mar 23<span>rd</span>, 2014</time></div>
-      <div class="tags">Tags: 
-
-
-	<a class='category' href='/blog/categories/leetcode/'>leetcode</a>
-
-
-</div>
-    </div>
-		<p>There is an assumption:
+        <article class="post">
+	<h2 class="title">[Leetcode] Remove Nth Node From End of List</h2>
+	<div class="entry-content"><p>There is an assumption:
 Given n will always be valid.</p>
 
 <p>Also notice that the index start from 1 from the end of the list.</p>
@@ -263,140 +232,32 @@ Given n will always be valid.</p>
 </span><span class='line'><span class="o">}</span>
 </span></code></pre></td></tr></table></div></figure>
 
-
-		
-		
-	</div>
+</div>
 
 <div class="meta">
 	
 </div>
 </article>
 
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2014/03/23/leetcode-longest-common-prefix/">
-		
-			[Leetcode] Longest Common Prefix</a>
-	</h2>
-    <div class="entry-content">
-    <div class="meta">
-      <div class="date">Published on: 
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-03-23T15:36:43-04:00" pubdate data-updated="true">Mar 23<span>rd</span>, 2014</time></div>
-      <div class="tags">Tags: 
-
-
-	<a class='category' href='/blog/categories/leetcode/'>leetcode</a>
-
-
-</div>
-    </div>
-		<figure class='code'><figcaption><span>Longest Common Prefix</span><a href='http://oj.leetcode.com/problems/longest-common-prefix/'>Leetcode Link</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="cm">/**</span>
-</span><span class='line'><span class="cm"> * Write a function to find the longest common prefix string amongst an array of strings.</span>
-</span><span class='line'><span class="cm"> *</span>
-</span><span class='line'><span class="cm"> * Solution:</span>
-</span><span class='line'><span class="cm"> *  start from the first char in first string, check if it in all other strings, if not, return</span>
-</span><span class='line'><span class="cm"> *</span>
-</span><span class='line'><span class="cm"> */</span>
-</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LongestCommonPrefix</span>
-</span><span class='line'><span class="o">{</span>
-</span><span class='line'>    <span class="kd">public</span> <span class="n">String</span> <span class="nf">longestCommonPrefix</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">strs</span><span class="o">)</span>
-</span><span class='line'>    <span class="o">{</span>
-</span><span class='line'>        <span class="c1">// if null input or empty input, return empty string</span>
-</span><span class='line'>        <span class="k">if</span><span class="o">(</span><span class="n">strs</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">strs</span><span class="o">.</span><span class="na">length</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span>
-</span><span class='line'>        <span class="o">{</span>
-</span><span class='line'>            <span class="k">return</span> <span class="s">&quot;&quot;</span><span class="o">;</span>
-</span><span class='line'>        <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="n">StringBuilder</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="o">();</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">strs</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">length</span><span class="o">();</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span>
-</span><span class='line'>        <span class="o">{</span>
-</span><span class='line'>            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">strs</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="o">++</span><span class="n">j</span><span class="o">)</span>
-</span><span class='line'>            <span class="o">{</span>
-</span><span class='line'>                <span class="c1">// if the current char in strs[0] doesn&#39;t exist in any following str</span>
-</span><span class='line'>                <span class="k">if</span><span class="o">(</span><span class="n">strs</span><span class="o">[</span><span class="n">j</span><span class="o">].</span><span class="na">length</span><span class="o">()</span> <span class="o">&lt;=</span> <span class="n">i</span> <span class="o">||</span> <span class="n">strs</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">!=</span> <span class="n">strs</span><span class="o">[</span><span class="n">j</span><span class="o">].</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">))</span>
-</span><span class='line'>                <span class="o">{</span>
-</span><span class='line'>                    <span class="c1">// return current common prefix result</span>
-</span><span class='line'>                    <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
-</span><span class='line'>                <span class="o">}</span>
-</span><span class='line'>            <span class="o">}</span>
-</span><span class='line'>            <span class="c1">// if the current char exists in all other strs, append it to common prefix</span>
-</span><span class='line'>            <span class="n">result</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">strs</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">));</span>
-</span><span class='line'>        <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="c1">// if all chars in strs[0] are prefix in other strs, return strs[0]</span>
-</span><span class='line'>        <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-		
-		
-	</div>
-
-<div class="meta">
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
 	
+	
+	<a class="addthis_button_tweet"></a>
+	
+	
+	<a class="addthis_counter addthis_pill_style"></a>
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
 </div>
-</article>
 
-<nav id="pagenavi">
-    
-    
-    <div class="center"><a href="/blog/archives">Blog Archives</a></div>
-</nav>
+
+
+<section id="comment">
+    <h2 class="title">Comments</h2>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
 
     </div>
     <footer id="footer">
@@ -423,7 +284,10 @@ Given n will always be valid.</p>
       var disqus_shortname = 'xiaochensblog';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://xiaochenchen.github.io/blog/2014/03/23/leetcode-remove-nth-node-from-end-of-list/';
+        var disqus_url = 'http://xiaochenchen.github.io/blog/2014/03/23/leetcode-remove-nth-node-from-end-of-list/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: leetcode | XCC]]></title>
   <link href="http://xiaochenchen.github.io/blog/categories/leetcode/atom.xml" rel="self"/>
   <link href="http://xiaochenchen.github.io/"/>
-  <updated>2014-03-23T15:51:53-04:00</updated>
+  <updated>2014-03-23T16:36:12-04:00</updated>
   <id>http://xiaochenchen.github.io/</id>
   <author>
     <name><![CDATA[XCC]]></name>
@@ -12,6 +12,91 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[[leetcode] Remove Nth Node From End of List]]></title>
+    <link href="http://xiaochenchen.github.io/blog/2014/03/23/leetcode-remove-nth-node-from-end-of-list/"/>
+    <updated>2014-03-23T16:28:30-04:00</updated>
+    <id>http://xiaochenchen.github.io/blog/2014/03/23/leetcode-remove-nth-node-from-end-of-list</id>
+    <content type="html"><![CDATA[<p>There is an assumption:
+Given n will always be valid.</p>
+
+<p>Also notice that the index start from 1 from the end of the list.</p>
+
+<p>Two things to pay attention to during implementation:
+(1) add a dummy head pointer to avoid special processing for the case when head is null
+(2) keep track of the node (call it B) before the target node, check if B.next is null before removing the target node</p>
+
+<p>``` java Remove Nth Node From End of List <a href="http://oj.leetcode.com/problems/remove-nth-node-from-end-of-list/">http://oj.leetcode.com/problems/remove-nth-node-from-end-of-list/</a> Leetcode Link
+/<em>*
+ * Given a linked list, remove the nth node from the end of list and return its head.
+ * For example,
+ *  Given linked list: 1->2->3->4->5, and n = 2.
+ *  After removing the second node from the end, the linked list becomes 1->2->3->5.
+ *
+ * Solution:
+ *  Start with a A pointer from the head, once A is pointing to Nth node
+ *  introduce pointer start from head, move A and B together until A gets to the end
+ *  And now remove the node after B.
+ *
+ * Created by XCC on 3/23/14.
+ </em>/
+public class RemoveNthNodeFromEndOfList {</p>
+
+<pre><code>// Definition for singly-linked list.
+public class ListNode {
+    int val;
+    ListNode next;
+
+    ListNode(int x) {
+        val = x;
+        next = null;
+    }
+}
+
+public ListNode removeNthFromEnd(ListNode head, int n)
+{
+    // introduce dummy head to ignore the null list input case
+    ListNode dummyHead = new ListNode(Integer.MIN_VALUE);
+    dummyHead.next = head;
+
+    // A pointer
+    ListNode aNode = dummyHead;
+    // index of the A pointer
+    int aIndex = 0;
+
+    // advance A pointer to N node away from head
+    while(aIndex &lt; n &amp;&amp; aNode.next != null)
+    {
+        aNode = aNode.next;
+        aIndex++;
+    }
+
+    // B pointer
+    ListNode bNode = dummyHead;
+
+    // advance A and B at the same time, until A gets the the end
+    while(aNode.next != null)
+    {
+        aNode = aNode.next;
+        bNode = bNode.next;
+    }
+
+    // remove the Node after B, which is Nth away from the end
+    // only when bNode.next is not NULL
+    if(bNode.next != null)
+    {
+        bNode.next = bNode.next.next;
+    }
+
+    return dummyHead.next;
+}
+</code></pre>
+
+<p>}
+```</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[[leetcode] Longest Common Prefix]]></title>
