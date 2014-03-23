@@ -4,7 +4,7 @@
   <title><![CDATA[Category: leetcode | XCC]]></title>
   <link href="http://xiaochenchen.github.io/blog/categories/leetcode/atom.xml" rel="self"/>
   <link href="http://xiaochenchen.github.io/"/>
-  <updated>2014-03-23T15:47:44-04:00</updated>
+  <updated>2014-03-23T15:51:53-04:00</updated>
   <id>http://xiaochenchen.github.io/</id>
   <author>
     <name><![CDATA[XCC]]></name>
@@ -18,20 +18,13 @@
     <link href="http://xiaochenchen.github.io/blog/2014/03/23/leetcode-longest-common-prefix/"/>
     <updated>2014-03-23T15:36:43-04:00</updated>
     <id>http://xiaochenchen.github.io/blog/2014/03/23/leetcode-longest-common-prefix</id>
-    <content type="html"><![CDATA[<p>Problem description:
-Write a function to find the longest common prefix string amongst an array of strings.</p>
-
-<p>Link to the problem:
-<a href="http://oj.leetcode.com/problems/longest-common-prefix/">http://oj.leetcode.com/problems/longest-common-prefix/</a></p>
-
-<p>``` java Longest Common Prefix <a href="http://oj.leetcode.com/problems/longest-common-prefix/">http://oj.leetcode.com/problems/longest-common-prefix/</a> Leetcode Link
+    <content type="html"><![CDATA[<p>``` java Longest Common Prefix <a href="http://oj.leetcode.com/problems/longest-common-prefix/">http://oj.leetcode.com/problems/longest-common-prefix/</a> Leetcode Link
 /<em>*
  * Write a function to find the longest common prefix string amongst an array of strings.
  *
  * Solution:
  *  start from the first char in first string, check if it in all other strings, if not, return
  *
- * Created by Maximus on 3/23/14.
  </em>/
 public class LongestCommonPrefix
 {</p>

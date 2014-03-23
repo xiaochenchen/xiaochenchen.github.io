@@ -4,7 +4,7 @@
   <title><![CDATA[XCC]]></title>
   <link href="http://xiaochenchen.github.io/atom.xml" rel="self"/>
   <link href="http://xiaochenchen.github.io/"/>
-  <updated>2014-03-23T15:47:44-04:00</updated>
+  <updated>2014-03-23T15:51:53-04:00</updated>
   <id>http://xiaochenchen.github.io/</id>
   <author>
     <name><![CDATA[XCC]]></name>
@@ -18,13 +18,7 @@
     <link href="http://xiaochenchen.github.io/blog/2014/03/23/leetcode-longest-common-prefix/"/>
     <updated>2014-03-23T15:36:43-04:00</updated>
     <id>http://xiaochenchen.github.io/blog/2014/03/23/leetcode-longest-common-prefix</id>
-    <content type="html"><![CDATA[<p>Problem description:
-Write a function to find the longest common prefix string amongst an array of strings.</p>
-
-<p>Link to the problem:
-<a href="http://oj.leetcode.com/problems/longest-common-prefix/">http://oj.leetcode.com/problems/longest-common-prefix/</a></p>
-
-<figure class='code'><figcaption><span>Longest Common Prefix</span><a href='http://oj.leetcode.com/problems/longest-common-prefix/'>Leetcode Link</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+    <content type="html"><![CDATA[<figure class='code'><figcaption><span>Longest Common Prefix</span><a href='http://oj.leetcode.com/problems/longest-common-prefix/'>Leetcode Link</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -62,14 +56,12 @@ Write a function to find the longest common prefix string amongst an array of st
 <span class='line-number'>36</span>
 <span class='line-number'>37</span>
 <span class='line-number'>38</span>
-<span class='line-number'>39</span>
 </pre></td><td class='code'><pre><code class='java'><span class='line'><span class="cm">/**</span>
 </span><span class='line'><span class="cm"> * Write a function to find the longest common prefix string amongst an array of strings.</span>
 </span><span class='line'><span class="cm"> *</span>
 </span><span class='line'><span class="cm"> * Solution:</span>
 </span><span class='line'><span class="cm"> *  start from the first char in first string, check if it in all other strings, if not, return</span>
 </span><span class='line'><span class="cm"> *</span>
-</span><span class='line'><span class="cm"> * Created by Maximus on 3/23/14.</span>
 </span><span class='line'><span class="cm"> */</span>
 </span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LongestCommonPrefix</span>
 </span><span class='line'><span class="o">{</span>
