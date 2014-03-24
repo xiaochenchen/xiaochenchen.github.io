@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: stack | lightsaber]]></title>
+  <link href="http://xiaochenchen.github.io/blog/categories/stack/atom.xml" rel="self"/>
+  <link href="http://xiaochenchen.github.io/"/>
+  <updated>2014-03-23T22:22:23-04:00</updated>
+  <id>http://xiaochenchen.github.io/</id>
+  <author>
+    <name><![CDATA[lightsaber]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[[leetcode] Valid Parentheses]]></title>
+    <link href="http://xiaochenchen.github.io/blog/2014/03/23/leetcode-valid-parentheses/"/>
+    <updated>2014-03-23T22:19:46-04:00</updated>
+    <id>http://xiaochenchen.github.io/blog/2014/03/23/leetcode-valid-parentheses</id>
+    <content type="html"><![CDATA[<p>Scan through the string, if left parenthesis is encountered, push into stack, if right parenthesis is encountered, match with the top element from the stack.
+``` java Valid Parentheses <a href="http://oj.leetcode.com/problems/valid-parentheses/">http://oj.leetcode.com/problems/valid-parentheses/</a> Leetcode Link
+/<em>*
+ * Valid Parentheses
+ *
+ * Given a string containing just the characters &lsquo;(&rsquo;, &lsquo;)&rsquo;, &lsquo;{&rsquo;, &lsquo;}&rsquo;, &lsquo;[&rsquo; and &lsquo;]&rsquo;,
+ * determine if the input string is valid. The brackets must close in the correct order,
+ * &ldquo;()&rdquo; and &ldquo;()[]{}&rdquo; are all valid but &ldquo;(]&rdquo; and &ldquo;([)]&rdquo; are not.
+ *
+ * Created by lightsaber on 3/23/14.
+ </em>/
+public class ValidParentheses
+{</p>
+
+<pre><code>public boolean isValid(String s) {
+    Stack&lt;Character&gt; leftParentheses = new Stack&lt;Character&gt;();
+    for(char c : s.toCharArray())
+    {
+        // if left parenthesis, push into stack, continue to next char
+        if(c == '(' || c == '[' || c == '{')
+        {
+            leftParentheses.push(c);
+            continue;
+        }
+
+        // if stack empty, return false
+        if(leftParentheses.isEmpty())
+        {
+            return false;
+        }
+
+        // check if the top of stack matches with current char
+        char topOfStack = leftParentheses.pop();
+        if( !((c == ')' &amp;&amp; topOfStack == '(')
+                    || (c == ']') &amp;&amp; topOfStack == '['
+                    || (c == '}') &amp;&amp; topOfStack == '{') )
+        {
+            return false;
+        }
+    }
+
+    // if nothing left in the stack, return true
+    if(leftParentheses.isEmpty())
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+</code></pre>
+
+<p>}
+```</p>
+]]></content>
+  </entry>
+  
+</feed>
