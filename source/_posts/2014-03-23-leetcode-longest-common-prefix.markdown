@@ -5,6 +5,8 @@ date: 2014-03-23 15:36:43 -0400
 comments: true
 categories:
 - leetcode
+- coding
+- brute force
 ---
 ``` java Longest Common Prefix http://oj.leetcode.com/problems/longest-common-prefix/ Leetcode Link
 /**
