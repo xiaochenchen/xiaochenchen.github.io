@@ -4,7 +4,7 @@
   <title><![CDATA[Category: coding | lightsaber]]></title>
   <link href="http://xiaochenchen.github.io/blog/categories/coding/atom.xml" rel="self"/>
   <link href="http://xiaochenchen.github.io/"/>
-  <updated>2014-03-23T22:22:23-04:00</updated>
+  <updated>2014-03-23T22:27:29-04:00</updated>
   <id>http://xiaochenchen.github.io/</id>
   <author>
     <name><![CDATA[lightsaber]]></name>
@@ -81,14 +81,19 @@ public class ValidParentheses
     <link href="http://xiaochenchen.github.io/blog/2014/03/23/leetcode-remove-nth-node-from-end-of-list/"/>
     <updated>2014-03-23T16:28:30-04:00</updated>
     <id>http://xiaochenchen.github.io/blog/2014/03/23/leetcode-remove-nth-node-from-end-of-list</id>
-    <content type="html"><![CDATA[<p>There is an assumption:
-Given n will always be valid.</p>
+    <content type="html"><![CDATA[<h2>Assumption:</h2>
+
+<p>Given n will always be valid.</p>
 
 <p>Also notice that the index start from 1 from the end of the list.</p>
 
-<p>Two things to pay attention to during implementation:
-(1) add a dummy head pointer to avoid special processing for the case when head is null
-(2) keep track of the node (call it B) before the target node, check if B.next is null before removing the target node</p>
+<h2>Two things to pay attention to during implementation:</h2>
+
+<ol>
+<li>add a dummy head pointer to avoid special processing for the case when head is null</li>
+<li>keep track of the node (call it B) before the target node, check if B.next is null before removing the target node</li>
+</ol>
+
 
 <p>``` java Remove Nth Node From End of List <a href="http://oj.leetcode.com/problems/remove-nth-node-from-end-of-list/">http://oj.leetcode.com/problems/remove-nth-node-from-end-of-list/</a> Leetcode Link
 /<em>*
