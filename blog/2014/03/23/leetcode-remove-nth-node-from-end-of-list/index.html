@@ -6,7 +6,8 @@
 	<title>[leetcode] Remove Nth Node From End of List - lightsaber</title>
     <meta name="author" content="lightsaber">
     
-	<meta name="description" content="Assumption: Given n will always be valid. Also notice that the index start from 1 from the end of the list. Two things to pay attention to during &hellip;">
+	<meta name="description" content="Assumption:
+Given n will always be valid. Two things to pay attention to during implementation: add a dummy head pointer to avoid special processing &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -90,19 +91,18 @@
     <div id="content" class="inner">
         <article class="post">
 	<h2 class="title">[Leetcode] Remove Nth Node From End of List</h2>
-	<div class="entry-content"><h2>Assumption:</h2>
+	<div class="entry-content"><blockquote><p>Assumption:
+Given n will always be valid.</p></blockquote>
 
-<p>Given n will always be valid.</p>
-
-<p>Also notice that the index start from 1 from the end of the list.</p>
-
-<h2>Two things to pay attention to during implementation:</h2>
+<h4>Two things to pay attention to during implementation:</h4>
 
 <ol>
 <li>add a dummy head pointer to avoid special processing for the case when head is null</li>
 <li>keep track of the node (call it B) before the target node, check if B.next is null before removing the target node</li>
 </ol>
 
+
+<p>Also notice that the index start from 1 from the end of the list.</p>
 
 <figure class='code'><figcaption><span>Remove Nth Node From End of List</span><a href='http://oj.leetcode.com/problems/remove-nth-node-from-end-of-list/'>Leetcode Link</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>

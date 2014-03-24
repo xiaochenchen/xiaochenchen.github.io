@@ -4,7 +4,7 @@
   <title><![CDATA[lightsaber]]></title>
   <link href="http://xiaochenchen.github.io/atom.xml" rel="self"/>
   <link href="http://xiaochenchen.github.io/"/>
-  <updated>2014-03-23T22:27:29-04:00</updated>
+  <updated>2014-03-23T22:33:39-04:00</updated>
   <id>http://xiaochenchen.github.io/</id>
   <author>
     <name><![CDATA[lightsaber]]></name>
@@ -128,19 +128,18 @@
     <link href="http://xiaochenchen.github.io/blog/2014/03/23/leetcode-remove-nth-node-from-end-of-list/"/>
     <updated>2014-03-23T16:28:30-04:00</updated>
     <id>http://xiaochenchen.github.io/blog/2014/03/23/leetcode-remove-nth-node-from-end-of-list</id>
-    <content type="html"><![CDATA[<h2>Assumption:</h2>
+    <content type="html"><![CDATA[<blockquote><p>Assumption:
+Given n will always be valid.</p></blockquote>
 
-<p>Given n will always be valid.</p>
-
-<p>Also notice that the index start from 1 from the end of the list.</p>
-
-<h2>Two things to pay attention to during implementation:</h2>
+<h4>Two things to pay attention to during implementation:</h4>
 
 <ol>
 <li>add a dummy head pointer to avoid special processing for the case when head is null</li>
 <li>keep track of the node (call it B) before the target node, check if B.next is null before removing the target node</li>
 </ol>
 
+
+<p>Also notice that the index start from 1 from the end of the list.</p>
 
 <figure class='code'><figcaption><span>Remove Nth Node From End of List</span><a href='http://oj.leetcode.com/problems/remove-nth-node-from-end-of-list/'>Leetcode Link</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
