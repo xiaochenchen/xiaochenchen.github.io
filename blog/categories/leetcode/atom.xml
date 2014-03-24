@@ -4,7 +4,7 @@
   <title><![CDATA[Category: leetcode | lightsaber]]></title>
   <link href="http://xiaochenchen.github.io/blog/categories/leetcode/atom.xml" rel="self"/>
   <link href="http://xiaochenchen.github.io/"/>
-  <updated>2014-03-23T21:28:28-04:00</updated>
+  <updated>2014-03-23T21:47:01-04:00</updated>
   <id>http://xiaochenchen.github.io/</id>
   <author>
     <name><![CDATA[lightsaber]]></name>
@@ -39,7 +39,6 @@ Given n will always be valid.</p>
  *  introduce pointer start from head, move A and B together until A gets to the end
  *  And now remove the node after B.
  *
- * Created by XCC on 3/23/14.
  </em>/
 public class RemoveNthNodeFromEndOfList {</p>
 
