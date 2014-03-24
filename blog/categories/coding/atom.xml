@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: leetcode | lightsaber]]></title>
-  <link href="http://xiaochenchen.github.io/blog/categories/leetcode/atom.xml" rel="self"/>
+  <title><![CDATA[Category: coding | lightsaber]]></title>
+  <link href="http://xiaochenchen.github.io/blog/categories/coding/atom.xml" rel="self"/>
   <link href="http://xiaochenchen.github.io/"/>
   <updated>2014-03-23T21:28:28-04:00</updated>
   <id>http://xiaochenchen.github.io/</id>
