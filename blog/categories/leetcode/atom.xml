@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: leetcode | XCC]]></title>
+  <title><![CDATA[Category: leetcode | lightsaber]]></title>
   <link href="http://xiaochenchen.github.io/blog/categories/leetcode/atom.xml" rel="self"/>
   <link href="http://xiaochenchen.github.io/"/>
-  <updated>2014-03-23T16:36:12-04:00</updated>
+  <updated>2014-03-23T21:16:14-04:00</updated>
   <id>http://xiaochenchen.github.io/</id>
   <author>
-    <name><![CDATA[XCC]]></name>
+    <name><![CDATA[Xiaochen]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
