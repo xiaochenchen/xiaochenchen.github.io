@@ -4,7 +4,7 @@
   <title><![CDATA[Category: linked list | lightsaber]]></title>
   <link href="http://xiaochenchen.github.io/blog/categories/linked-list/atom.xml" rel="self"/>
   <link href="http://xiaochenchen.github.io/"/>
-  <updated>2014-03-25T00:30:05-04:00</updated>
+  <updated>2014-03-25T00:34:48-04:00</updated>
   <id>http://xiaochenchen.github.io/</id>
   <author>
     <name><![CDATA[lightsaber]]></name>
@@ -18,11 +18,13 @@
     <link href="http://xiaochenchen.github.io/blog/2014/03/25/leetcode-merge-k-sorted-lists/"/>
     <updated>2014-03-25T00:21:55-04:00</updated>
     <id>http://xiaochenchen.github.io/blog/2014/03/25/leetcode-merge-k-sorted-lists</id>
-    <content type="html"><![CDATA[<h3>Main idea is to divide and conquer.</h3>
+    <content type="html"><![CDATA[<h4>Main idea is to divide and conquer.</h4>
 
 <p>Divide the k lists into group of 2. Merge every 2 to get (k+1)/2 lists. Then run the same process again until there is only one list left.</p>
 
-<blockquote><p>Note the sub-problem here: Merge two sorted linked list.
+<h4>Note the sub-problem here: Merge two sorted linked list.</h4>
+
+<blockquote><p>Time Complexity: O(log(k)kn) where k is the number lists and n is the average length of list
 ``` java Merge k Sorted Lists <a href="http://oj.leetcode.com/problems/merge-k-sorted-lists/">http://oj.leetcode.com/problems/merge-k-sorted-lists/</a> Leetcode Link
 /<em>*
  * Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.
@@ -83,88 +85,44 @@ public ListNode mergeKLists(ArrayList&lt;ListNode&gt; lists) {
  * @param listB
  * @return
  */
-public ListNode mergeTwoLists(ListNode listA, ListNode
-        listB)
+
+public ListNode mergeTwoLists(ListNode listA, ListNode listB)
 {
-    // add dummy head to keep track of the start
-    of the list
-        ListNode dummyHead = new
-        ListNode(Integer.MIN_VALUE);
-    ListNode curTail =
-        dummyHead;
+    // add dummy head to keep track of the start of the list
+    ListNode dummyHead = new ListNode(Integer.MIN_VALUE);
+    ListNode curTail = dummyHead;
 
     while(true)
     {
-        //
-        stop
-            point
-            of
-            the
-            loop
-            //
-            if
-                we
-                    reach
-                    the
-                    end
-                    of
-                    either
-                    list
-                    if(listA
-                            ==
-                            null)
-                    {
-                        curTail.next
-                            =
-                            listB;
-                        break;
-                    }
-                    else
-                        if(listB
-                                ==
-                                null)
-                        {
-                            curTail.next
-                                =
-                                listA;
-                            break;
-                        }
-
-        if(listA.val
-                &lt;
-                listB.val)
+        // stop point of the loop
+        // if we reach the end of either list
+        if(listA == null)
         {
-            curTail.next
-                =
-                listA;
-            listA
-                =
-                listA.next;
+            curTail.next = listB;
+            break;
+        }
+        else if(listB == null)
+        {
+            curTail.next = listA;
+            break;
+        }
+
+        if(listA.val &lt; listB.val)
+        {
+            curTail.next = listA;
+            listA = listA.next;
         }
         else
         {
-            curTail.next
-                =
-                listB;
-            listB
-                =
-                listB.next;
+            curTail.next = listB;
+            listB = listB.next;
         }
 
-        curTail
-            =
-            curTail.next;
+        curTail = curTail.next;
     }
 
-    //
-    return
-        the
-        node
-        right
-        after
-        dummyHead
-        return
-        dummyHead.next;
+    // return the node right after dummyHead
+    return dummyHead.next;
 }
 </code></pre>
 
