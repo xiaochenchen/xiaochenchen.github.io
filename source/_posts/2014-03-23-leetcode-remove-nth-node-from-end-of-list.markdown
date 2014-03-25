@@ -8,15 +8,14 @@ categories:
 - coding
 - linked list
 ---
-There is an assumption:
-Given n will always be valid.
+> Assumption:
+> Given n will always be valid.
+
+####Two things to pay attention to during implementation:
+1. add a dummy head pointer to avoid special processing for the case when head is null
+2. keep track of the node (call it B) before the target node, check if B.next is null before removing the target node
 
 Also notice that the index start from 1 from the end of the list.
-
-Two things to pay attention to during implementation:
-(1) add a dummy head pointer to avoid special processing for the case when head is null
-(2) keep track of the node (call it B) before the target node, check if B.next is null before removing the target node
-
 ``` java Remove Nth Node From End of List http://oj.leetcode.com/problems/remove-nth-node-from-end-of-list/ Leetcode Link
 /**
  * Given a linked list, remove the nth node from the end of list and return its head.
