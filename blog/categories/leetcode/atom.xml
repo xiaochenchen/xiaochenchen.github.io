@@ -4,7 +4,7 @@
   <title><![CDATA[Category: leetcode | lightsaber]]></title>
   <link href="http://xiaochenchen.github.io/blog/categories/leetcode/atom.xml" rel="self"/>
   <link href="http://xiaochenchen.github.io/"/>
-  <updated>2014-03-25T00:36:56-04:00</updated>
+  <updated>2014-03-25T00:38:59-04:00</updated>
   <id>http://xiaochenchen.github.io/</id>
   <author>
     <name><![CDATA[lightsaber]]></name>
@@ -24,8 +24,9 @@
 
 <h4>Note the sub-problem here: Merge two sorted linked list.</h4>
 
-<blockquote><p>Time Complexity: O(log(k)kn)
-where k is the number lists and n is the average length of list
+<blockquote><p>Time Complexity: O(log(k)kn)</p>
+
+<blockquote><p>where k is the number lists and n is the average length of list
 ``` java Merge k Sorted Lists <a href="http://oj.leetcode.com/problems/merge-k-sorted-lists/">http://oj.leetcode.com/problems/merge-k-sorted-lists/</a> Leetcode Link
 /<em>*
  * Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.
@@ -39,7 +40,7 @@ public class MergeKSortedList
 public class ListNode {
     int val;
     ListNode next;
-</code></pre></blockquote>
+</code></pre></blockquote></blockquote>
 
 <pre><code>    ListNode(int x) {
         val = x;
