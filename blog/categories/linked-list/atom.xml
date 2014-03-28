@@ -4,7 +4,7 @@
   <title><![CDATA[Category: linked list | lightsaber]]></title>
   <link href="http://xiaochenchen.github.io/blog/categories/linked-list/atom.xml" rel="self"/>
   <link href="http://xiaochenchen.github.io/"/>
-  <updated>2014-03-27T22:20:56-04:00</updated>
+  <updated>2014-03-27T22:55:23-04:00</updated>
   <id>http://xiaochenchen.github.io/</id>
   <author>
     <name><![CDATA[lightsaber]]></name>
@@ -18,7 +18,7 @@
     <link href="http://xiaochenchen.github.io/blog/2014/03/27/leetcode-reverse-nodes-in-k-group/"/>
     <updated>2014-03-27T22:03:43-04:00</updated>
     <id>http://xiaochenchen.github.io/blog/2014/03/27/leetcode-reverse-nodes-in-k-group</id>
-    <content type="html"><![CDATA[<h1>Algorithm</h1>
+    <content type="html"><![CDATA[<h3>Algorithm</h3>
 
 <p>This question is similar to <a href="http://xiaochenchen.github.io/blog/2014/03/27/leetcode-swap-nodes-in-pairs/">Swap Nodes in Pairs</a> in that we need to keep track of the Node before the K group, we call it <code>pre</code> reference. When we are done with the K group, we need to change pre to point to the Begin of this K group.</p>
 
@@ -116,7 +116,7 @@ public boolean hasAtLeastKNodes(ListNode head, int k)
     <link href="http://xiaochenchen.github.io/blog/2014/03/27/leetcode-swap-nodes-in-pairs/"/>
     <updated>2014-03-27T21:19:11-04:00</updated>
     <id>http://xiaochenchen.github.io/blog/2014/03/27/leetcode-swap-nodes-in-pairs</id>
-    <content type="html"><![CDATA[<h1>Algorithm:</h1>
+    <content type="html"><![CDATA[<h3>Algorithm:</h3>
 
 <p>Use a pre reference, to keep track of previous node before current pair.
 Swap that pair. Take care of the end of the pair, the pair itself and the node before current pair.
@@ -179,11 +179,11 @@ public ListNode swapPairs(ListNode head)
     <link href="http://xiaochenchen.github.io/blog/2014/03/25/leetcode-merge-k-sorted-lists/"/>
     <updated>2014-03-25T00:21:55-04:00</updated>
     <id>http://xiaochenchen.github.io/blog/2014/03/25/leetcode-merge-k-sorted-lists</id>
-    <content type="html"><![CDATA[<h4>Main idea is to divide and conquer.</h4>
+    <content type="html"><![CDATA[<h3>Main idea is to divide and conquer.</h3>
 
 <p>Divide the k lists into group of 2. Merge every 2 to get (k+1)/2 lists. Then run the same process again until there is only one list left.</p>
 
-<h4>Note the sub-problem here: Merge two sorted linked list.</h4>
+<h3>Note the sub-problem here: Merge two sorted linked list.</h3>
 
 <blockquote><p>Time Complexity: O(log(k)kn)</p>
 
@@ -302,7 +302,7 @@ public ListNode mergeTwoLists(ListNode listA, ListNode listB)
     <content type="html"><![CDATA[<blockquote><p>Assumption:
 Given n will always be valid.</p></blockquote>
 
-<h4>Two things to pay attention to during implementation:</h4>
+<h3>Two things to pay attention to during implementation:</h3>
 
 <ol>
 <li>add a dummy head pointer to avoid special processing for the case when head is null</li>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: coding | lightsaber]]></title>
   <link href="http://xiaochenchen.github.io/blog/categories/coding/atom.xml" rel="self"/>
   <link href="http://xiaochenchen.github.io/"/>
-  <updated>2014-03-27T22:20:56-04:00</updated>
+  <updated>2014-03-27T22:55:23-04:00</updated>
   <id>http://xiaochenchen.github.io/</id>
   <author>
     <name><![CDATA[lightsaber]]></name>
@@ -14,11 +14,50 @@
 
   
   <entry>
+    <title type="html"><![CDATA[[leetcode] Implement strStr()]]></title>
+    <link href="http://xiaochenchen.github.io/blog/2014/03/27/leetcode-implement-strstr/"/>
+    <updated>2014-03-27T22:47:45-04:00</updated>
+    <id>http://xiaochenchen.github.io/blog/2014/03/27/leetcode-implement-strstr</id>
+    <content type="html"><![CDATA[<h3>Algorithm</h3>
+
+<p>brute force, stop matching when the remaining string in source is shorter than target
+There is KMP algorithm, if you are interested. Not implementing here.
+``` java Implement strStr() <a href="http://oj.leetcode.com/problems/implement-strstr/">http://oj.leetcode.com/problems/implement-strstr/</a> Leetcode Link
+/<em>*
+ *
+ * Implement strStr().
+ * Returns a pointer to the first occurrence of needle in haystack,
+ * or null if needle is not part of haystack.
+ *
+ * Created by lightsaber on 3/27/14.
+ </em>/
+public class StrStr
+{</p>
+
+<pre><code>public String strStr(String haystack, String needle) {
+    for(int i = 0; i &lt;= haystack.length() - needle.length(); ++i)
+    {
+        if(haystack.substring(i, i + needle.length()).equals(needle))
+        {
+            return haystack.substring(i);
+        }
+    }
+
+    return null;
+}
+</code></pre>
+
+<p>}
+```</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[[leetcode] Reverse Nodes in K Group]]></title>
     <link href="http://xiaochenchen.github.io/blog/2014/03/27/leetcode-reverse-nodes-in-k-group/"/>
     <updated>2014-03-27T22:03:43-04:00</updated>
     <id>http://xiaochenchen.github.io/blog/2014/03/27/leetcode-reverse-nodes-in-k-group</id>
-    <content type="html"><![CDATA[<h1>Algorithm</h1>
+    <content type="html"><![CDATA[<h3>Algorithm</h3>
 
 <p>This question is similar to <a href="http://xiaochenchen.github.io/blog/2014/03/27/leetcode-swap-nodes-in-pairs/">Swap Nodes in Pairs</a> in that we need to keep track of the Node before the K group, we call it <code>pre</code> reference. When we are done with the K group, we need to change pre to point to the Begin of this K group.</p>
 
@@ -116,7 +155,7 @@ public boolean hasAtLeastKNodes(ListNode head, int k)
     <link href="http://xiaochenchen.github.io/blog/2014/03/27/leetcode-swap-nodes-in-pairs/"/>
     <updated>2014-03-27T21:19:11-04:00</updated>
     <id>http://xiaochenchen.github.io/blog/2014/03/27/leetcode-swap-nodes-in-pairs</id>
-    <content type="html"><![CDATA[<h1>Algorithm:</h1>
+    <content type="html"><![CDATA[<h3>Algorithm:</h3>
 
 <p>Use a pre reference, to keep track of previous node before current pair.
 Swap that pair. Take care of the end of the pair, the pair itself and the node before current pair.
@@ -179,11 +218,11 @@ public ListNode swapPairs(ListNode head)
     <link href="http://xiaochenchen.github.io/blog/2014/03/25/leetcode-merge-k-sorted-lists/"/>
     <updated>2014-03-25T00:21:55-04:00</updated>
     <id>http://xiaochenchen.github.io/blog/2014/03/25/leetcode-merge-k-sorted-lists</id>
-    <content type="html"><![CDATA[<h4>Main idea is to divide and conquer.</h4>
+    <content type="html"><![CDATA[<h3>Main idea is to divide and conquer.</h3>
 
 <p>Divide the k lists into group of 2. Merge every 2 to get (k+1)/2 lists. Then run the same process again until there is only one list left.</p>
 
-<h4>Note the sub-problem here: Merge two sorted linked list.</h4>
+<h3>Note the sub-problem here: Merge two sorted linked list.</h3>
 
 <blockquote><p>Time Complexity: O(log(k)kn)</p>
 
@@ -349,93 +388,6 @@ public class ValidParentheses
     {
         return false;
     }
-}
-</code></pre>
-
-<p>}
-```</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[[leetcode] Remove Nth Node From End of List]]></title>
-    <link href="http://xiaochenchen.github.io/blog/2014/03/23/leetcode-remove-nth-node-from-end-of-list/"/>
-    <updated>2014-03-23T16:28:30-04:00</updated>
-    <id>http://xiaochenchen.github.io/blog/2014/03/23/leetcode-remove-nth-node-from-end-of-list</id>
-    <content type="html"><![CDATA[<blockquote><p>Assumption:
-Given n will always be valid.</p></blockquote>
-
-<h4>Two things to pay attention to during implementation:</h4>
-
-<ol>
-<li>add a dummy head pointer to avoid special processing for the case when head is null</li>
-<li>keep track of the node (call it B) before the target node, check if B.next is null before removing the target node</li>
-</ol>
-
-
-<p>Also notice that the index start from 1 from the end of the list.
-``` java Remove Nth Node From End of List <a href="http://oj.leetcode.com/problems/remove-nth-node-from-end-of-list/">http://oj.leetcode.com/problems/remove-nth-node-from-end-of-list/</a> Leetcode Link
-/<em>*
- * Given a linked list, remove the nth node from the end of list and return its head.
- * For example,
- *  Given linked list: 1->2->3->4->5, and n = 2.
- *  After removing the second node from the end, the linked list becomes 1->2->3->5.
- *
- * Solution:
- *  Start with a A pointer from the head, once A is pointing to Nth node
- *  introduce pointer start from head, move A and B together until A gets to the end
- *  And now remove the node after B.
- *
- </em>/
-public class RemoveNthNodeFromEndOfList {</p>
-
-<pre><code>// Definition for singly-linked list.
-public class ListNode {
-    int val;
-    ListNode next;
-
-    ListNode(int x) {
-        val = x;
-        next = null;
-    }
-}
-
-public ListNode removeNthFromEnd(ListNode head, int n)
-{
-    // introduce dummy head to ignore the null list input case
-    ListNode dummyHead = new ListNode(Integer.MIN_VALUE);
-    dummyHead.next = head;
-
-    // A pointer
-    ListNode aNode = dummyHead;
-    // index of the A pointer
-    int aIndex = 0;
-
-    // advance A pointer to N node away from head
-    while(aIndex &lt; n &amp;&amp; aNode.next != null)
-    {
-        aNode = aNode.next;
-        aIndex++;
-    }
-
-    // B pointer
-    ListNode bNode = dummyHead;
-
-    // advance A and B at the same time, until A gets the the end
-    while(aNode.next != null)
-    {
-        aNode = aNode.next;
-        bNode = bNode.next;
-    }
-
-    // remove the Node after B, which is Nth away from the end
-    // only when bNode.next is not NULL
-    if(bNode.next != null)
-    {
-        bNode.next = bNode.next.next;
-    }
-
-    return dummyHead.next;
 }
 </code></pre>
 

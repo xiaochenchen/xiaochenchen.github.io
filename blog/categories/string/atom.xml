@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: string | lightsaber]]></title>
+  <link href="http://xiaochenchen.github.io/blog/categories/string/atom.xml" rel="self"/>
+  <link href="http://xiaochenchen.github.io/"/>
+  <updated>2014-03-27T22:55:23-04:00</updated>
+  <id>http://xiaochenchen.github.io/</id>
+  <author>
+    <name><![CDATA[lightsaber]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[[leetcode] Implement strStr()]]></title>
+    <link href="http://xiaochenchen.github.io/blog/2014/03/27/leetcode-implement-strstr/"/>
+    <updated>2014-03-27T22:47:45-04:00</updated>
+    <id>http://xiaochenchen.github.io/blog/2014/03/27/leetcode-implement-strstr</id>
+    <content type="html"><![CDATA[<h3>Algorithm</h3>
+
+<p>brute force, stop matching when the remaining string in source is shorter than target
+There is KMP algorithm, if you are interested. Not implementing here.
+``` java Implement strStr() <a href="http://oj.leetcode.com/problems/implement-strstr/">http://oj.leetcode.com/problems/implement-strstr/</a> Leetcode Link
+/<em>*
+ *
+ * Implement strStr().
+ * Returns a pointer to the first occurrence of needle in haystack,
+ * or null if needle is not part of haystack.
+ *
+ * Created by lightsaber on 3/27/14.
+ </em>/
+public class StrStr
+{</p>
+
+<pre><code>public String strStr(String haystack, String needle) {
+    for(int i = 0; i &lt;= haystack.length() - needle.length(); ++i)
+    {
+        if(haystack.substring(i, i + needle.length()).equals(needle))
+        {
+            return haystack.substring(i);
+        }
+    }
+
+    return null;
+}
+</code></pre>
+
+<p>}
+```</p>
+]]></content>
+  </entry>
+  
+</feed>
