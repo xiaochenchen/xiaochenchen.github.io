@@ -8,9 +8,9 @@ categories:
 - coding
 - linked list
 ---
-####Main idea is to divide and conquer. 
+###Main idea is to divide and conquer. 
 Divide the k lists into group of 2. Merge every 2 to get (k+1)/2 lists. Then run the same process again until there is only one list left.
-####Note the sub-problem here: Merge two sorted linked list.
+###Note the sub-problem here: Merge two sorted linked list.
 > Time Complexity: O(log(k)kn) 
 >> where k is the number lists and n is the average length of list
 ``` java Merge k Sorted Lists http://oj.leetcode.com/problems/merge-k-sorted-lists/ Leetcode Link

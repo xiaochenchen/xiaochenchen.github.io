@@ -8,8 +8,7 @@ categories:
 - coding
 - linked list
 ---
-Algorithm
-============
+###Algorithm
 This question is similar to [Swap Nodes in Pairs](http://xiaochenchen.github.io/blog/2014/03/27/leetcode-swap-nodes-in-pairs/) in that we need to keep track of the Node before the K group, we call it `pre` reference. When we are done with the K group, we need to change pre to point to the Begin of this K group.
 
 In order to reverse K group, we keep track of the beginning `kBegin` and ending `kEnd` of currently reversed nodes. When processing for next node, we move `kEnd` to point to its next, insert itself before `kBegin`, and update `kBegin`. Until we reserverd K nodes.

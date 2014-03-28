@@ -11,7 +11,7 @@ categories:
 > Assumption:
 > Given n will always be valid.
 
-####Two things to pay attention to during implementation:
+###Two things to pay attention to during implementation:
 1. add a dummy head pointer to avoid special processing for the case when head is null
 2. keep track of the node (call it B) before the target node, check if B.next is null before removing the target node
 

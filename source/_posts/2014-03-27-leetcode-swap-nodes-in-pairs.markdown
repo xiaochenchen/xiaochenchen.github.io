@@ -8,8 +8,7 @@ categories:
 - coding
 - linked list
 ---
-Algorithm:
-=========
+###Algorithm:
 Use a pre reference, to keep track of previous node before current pair. 
 Swap that pair. Take care of the end of the pair, the pair itself and the node before current pair.
 ``` java Swap Nodes in Pairs http://oj.leetcode.com/problems/swap-nodes-in-pairs/ Leetcode Link
