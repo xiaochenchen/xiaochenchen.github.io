@@ -4,7 +4,7 @@
   <title><![CDATA[lightsaber]]></title>
   <link href="http://xiaochenchen.github.io/atom.xml" rel="self"/>
   <link href="http://xiaochenchen.github.io/"/>
-  <updated>2014-03-27T22:19:27-04:00</updated>
+  <updated>2014-03-27T22:20:56-04:00</updated>
   <id>http://xiaochenchen.github.io/</id>
   <author>
     <name><![CDATA[lightsaber]]></name>
@@ -104,10 +104,6 @@
 <span class='line-number'>78</span>
 <span class='line-number'>79</span>
 <span class='line-number'>80</span>
-<span class='line-number'>81</span>
-<span class='line-number'>82</span>
-<span class='line-number'>83</span>
-<span class='line-number'>84</span>
 </pre></td><td class='code'><pre><code class='java'><span class='line'><span class="cm">/**</span>
 </span><span class='line'><span class="cm"> * Given a linked list, reverse the nodes of the</span>
 </span><span class='line'><span class="cm"> * linked list k at a time and return its modified list.</span>
@@ -180,16 +176,12 @@
 </span><span class='line'>            <span class="n">count</span><span class="o">++;</span>
 </span><span class='line'>            <span class="k">if</span><span class="o">(</span><span class="n">count</span> <span class="o">==</span> <span class="n">k</span><span class="o">)</span>
 </span><span class='line'>            <span class="o">{</span>
-</span><span class='line'>                <span class="k">return</span>
-</span><span class='line'>                    <span class="kc">true</span><span class="o">;</span>
+</span><span class='line'>                <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
 </span><span class='line'>            <span class="o">}</span>
-</span><span class='line'>            <span class="n">curr</span>
-</span><span class='line'>                <span class="o">=</span>
-</span><span class='line'>                <span class="n">curr</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+</span><span class='line'>            <span class="n">curr</span> <span class="o">=</span> <span class="n">curr</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
 </span><span class='line'>        <span class="o">}</span>
 </span><span class='line'>
-</span><span class='line'>        <span class="k">return</span>
-</span><span class='line'>            <span class="kc">false</span><span class="o">;</span>
+</span><span class='line'>        <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
 </span><span class='line'>    <span class="o">}</span>
 </span><span class='line'><span class="o">}</span>
 </span></code></pre></td></tr></table></div></figure>

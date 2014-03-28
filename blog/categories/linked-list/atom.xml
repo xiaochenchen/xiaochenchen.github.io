@@ -4,7 +4,7 @@
   <title><![CDATA[Category: linked list | lightsaber]]></title>
   <link href="http://xiaochenchen.github.io/blog/categories/linked-list/atom.xml" rel="self"/>
   <link href="http://xiaochenchen.github.io/"/>
-  <updated>2014-03-27T22:19:27-04:00</updated>
+  <updated>2014-03-27T22:20:56-04:00</updated>
   <id>http://xiaochenchen.github.io/</id>
   <author>
     <name><![CDATA[lightsaber]]></name>
@@ -97,16 +97,12 @@ public boolean hasAtLeastKNodes(ListNode head, int k)
         count++;
         if(count == k)
         {
-            return
-                true;
+            return true;
         }
-        curr
-            =
-            curr.next;
+        curr = curr.next;
     }
 
-    return
-        false;
+    return false;
 }
 </code></pre>
 
