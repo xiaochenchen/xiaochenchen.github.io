@@ -6,8 +6,7 @@
 	<title>lightsaber</title>
     <meta name="author" content="lightsaber">
     
-	<meta name="description" content="Published on: Mar 30th, 2014 Tags: array, coding, leetcode Algorithm: Store all elements in an HashSet H.
-Start scaning the array, for each element &hellip;">
+	<meta name="description" content="Published on: Mar 30th, 2014 Tags: coding, leetcode, parentheses Algorithm: Recursion, keep track of leftCount and rightCount. Decide to only append &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -90,6 +89,141 @@ Start scaning the array, for each element &hellip;">
 <!-- begin toload --> 
     <div id="content" class="inner">
         
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2014/03/30/leetcode-generate-parentheses/">
+		
+			[Leetcode] Generate Parentheses</a>
+	</h2>
+    <div class="entry-content">
+    <div class="meta">
+      <div class="date">Published on: 
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-30T14:46:33-04:00" pubdate data-updated="true">Mar 30<span>th</span>, 2014</time></div>
+      <div class="tags">Tags: 
+
+
+	<a class='category' href='/blog/categories/coding/'>coding</a>, <a class='category' href='/blog/categories/leetcode/'>leetcode</a>, <a class='category' href='/blog/categories/parentheses/'>parentheses</a>
+
+
+</div>
+    </div>
+		<h3>Algorithm:</h3>
+
+<p>Recursion, keep track of leftCount and rightCount. Decide to only append left or both.</p>
+
+<figure class='code'><figcaption><span>Generate Parentheses</span><a href='http://oj.leetcode.com/problems/generate-parentheses/'>Leetcode Link</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="cm">/**</span>
+</span><span class='line'><span class="cm"> *</span>
+</span><span class='line'><span class="cm"> * Given n pairs of parentheses,</span>
+</span><span class='line'><span class="cm"> * write a function to generate all combinations of well-formed parentheses.</span>
+</span><span class='line'><span class="cm"> *</span>
+</span><span class='line'><span class="cm"> *      For example, given n = 3, a solution set is:</span>
+</span><span class='line'><span class="cm"> *      &quot;((()))&quot;, &quot;(()())&quot;, &quot;(())()&quot;, &quot;()(())&quot;, &quot;()()()&quot;</span>
+</span><span class='line'><span class="cm"> *</span>
+</span><span class='line'><span class="cm"> * Created by lightsaber on 3/29/14.</span>
+</span><span class='line'><span class="cm"> */</span>
+</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">GenerateParentheses</span>
+</span><span class='line'><span class="o">{</span>
+</span><span class='line'>    <span class="kd">public</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="nf">generateParentheses</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span>
+</span><span class='line'>    <span class="o">{</span>
+</span><span class='line'>        <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">results</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;();</span>
+</span><span class='line'>        <span class="n">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="o">();</span>
+</span><span class='line'>        <span class="n">generate</span><span class="o">(</span><span class="n">results</span><span class="o">,</span> <span class="n">sb</span><span class="o">,</span> <span class="n">n</span><span class="o">,</span> <span class="n">n</span><span class="o">);</span>
+</span><span class='line'>        <span class="k">return</span> <span class="n">results</span><span class="o">;</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">generate</span><span class="o">(</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">results</span><span class="o">,</span> <span class="n">StringBuilder</span> <span class="n">result</span><span class="o">,</span> <span class="kt">int</span> <span class="n">lc</span><span class="o">,</span> <span class="kt">int</span> <span class="n">rc</span><span class="o">)</span>
+</span><span class='line'>    <span class="o">{</span>
+</span><span class='line'>        <span class="c1">// end of one combination, add to the result set and return</span>
+</span><span class='line'>        <span class="k">if</span><span class="o">(</span><span class="n">lc</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">rc</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span>
+</span><span class='line'>        <span class="o">{</span>
+</span><span class='line'>            <span class="n">results</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">result</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+</span><span class='line'>            <span class="k">return</span><span class="o">;</span>
+</span><span class='line'>        <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">if</span><span class="o">(</span><span class="n">lc</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span>
+</span><span class='line'>        <span class="o">{</span>
+</span><span class='line'>            <span class="n">result</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot;(&quot;</span><span class="o">);</span>
+</span><span class='line'>            <span class="n">generate</span><span class="o">(</span><span class="n">results</span><span class="o">,</span> <span class="n">result</span><span class="o">,</span> <span class="n">lc</span> <span class="o">-</span> <span class="mi">1</span><span class="o">,</span> <span class="n">rc</span><span class="o">);</span>
+</span><span class='line'>            <span class="n">result</span><span class="o">.</span><span class="na">deleteCharAt</span><span class="o">(</span><span class="n">result</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
+</span><span class='line'>        <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">if</span><span class="o">(</span><span class="n">lc</span> <span class="o">&lt;</span> <span class="n">rc</span><span class="o">)</span>
+</span><span class='line'>        <span class="o">{</span>
+</span><span class='line'>            <span class="n">result</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">&quot;)&quot;</span><span class="o">);</span>
+</span><span class='line'>            <span class="n">generate</span><span class="o">(</span><span class="n">results</span><span class="o">,</span> <span class="n">result</span><span class="o">,</span> <span class="n">lc</span><span class="o">,</span> <span class="n">rc</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
+</span><span class='line'>            <span class="n">result</span><span class="o">.</span><span class="na">deleteCharAt</span><span class="o">(</span><span class="n">result</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
+</span><span class='line'>        <span class="o">}</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+		
+		
+	</div>
+
+<div class="meta">
+	
+</div>
+</article>
 
 
     <article class="post">

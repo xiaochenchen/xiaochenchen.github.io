@@ -4,7 +4,7 @@
   <title><![CDATA[Category: coding | lightsaber]]></title>
   <link href="http://xiaochenchen.github.io/blog/categories/coding/atom.xml" rel="self"/>
   <link href="http://xiaochenchen.github.io/"/>
-  <updated>2014-03-30T14:43:59-04:00</updated>
+  <updated>2014-03-30T14:49:04-04:00</updated>
   <id>http://xiaochenchen.github.io/</id>
   <author>
     <name><![CDATA[lightsaber]]></name>
@@ -12,6 +12,66 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[[leetcode] Generate Parentheses]]></title>
+    <link href="http://xiaochenchen.github.io/blog/2014/03/30/leetcode-generate-parentheses/"/>
+    <updated>2014-03-30T14:46:33-04:00</updated>
+    <id>http://xiaochenchen.github.io/blog/2014/03/30/leetcode-generate-parentheses</id>
+    <content type="html"><![CDATA[<h3>Algorithm:</h3>
+
+<p>Recursion, keep track of leftCount and rightCount. Decide to only append left or both.
+``` java Generate Parentheses <a href="http://oj.leetcode.com/problems/generate-parentheses/">http://oj.leetcode.com/problems/generate-parentheses/</a> Leetcode Link
+/<em>*
+ *
+ * Given n pairs of parentheses,
+ * write a function to generate all combinations of well-formed parentheses.
+ *
+ *      For example, given n = 3, a solution set is:
+ *      &ldquo;((()))&rdquo;, &ldquo;(()())&rdquo;, &ldquo;(())()&rdquo;, &ldquo;()(())&rdquo;, &ldquo;()()()&rdquo;
+ *
+ * Created by lightsaber on 3/29/14.
+ </em>/
+public class GenerateParentheses
+{</p>
+
+<pre><code>public ArrayList&lt;String&gt; generateParentheses(int n)
+{
+    ArrayList&lt;String&gt; results = new ArrayList&lt;String&gt;();
+    StringBuilder sb = new StringBuilder();
+    generate(results, sb, n, n);
+    return results;
+}
+
+public void generate(ArrayList&lt;String&gt; results, StringBuilder result, int lc, int rc)
+{
+    // end of one combination, add to the result set and return
+    if(lc == 0 &amp;&amp; rc == 0)
+    {
+        results.add(result.toString());
+        return;
+    }
+
+    if(lc &gt; 0)
+    {
+        result.append("(");
+        generate(results, result, lc - 1, rc);
+        result.deleteCharAt(result.length() - 1);
+    }
+
+    if(lc &lt; rc)
+    {
+        result.append(")");
+        generate(results, result, lc, rc - 1);
+        result.deleteCharAt(result.length() - 1);
+    }
+}
+</code></pre>
+
+<p>}
+```</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[[leetcode] Longest Consecutive Sequence]]></title>
@@ -270,126 +330,6 @@ public ListNode swapPairs(ListNode head)
         curr = curr.next;
     }
 
-    return dummyHead.next;
-}
-</code></pre>
-
-<p>}
-```</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[[leetcode] Merge k Sorted Lists]]></title>
-    <link href="http://xiaochenchen.github.io/blog/2014/03/25/leetcode-merge-k-sorted-lists/"/>
-    <updated>2014-03-25T00:21:55-04:00</updated>
-    <id>http://xiaochenchen.github.io/blog/2014/03/25/leetcode-merge-k-sorted-lists</id>
-    <content type="html"><![CDATA[<h3>Main idea is to divide and conquer.</h3>
-
-<p>Divide the k lists into group of 2. Merge every 2 to get (k+1)/2 lists. Then run the same process again until there is only one list left.</p>
-
-<h3>Note the sub-problem here: Merge two sorted linked list.</h3>
-
-<blockquote><p>Time Complexity: O(log(k)kn)</p>
-
-<blockquote><p>where k is the number lists and n is the average length of list
-``` java Merge k Sorted Lists <a href="http://oj.leetcode.com/problems/merge-k-sorted-lists/">http://oj.leetcode.com/problems/merge-k-sorted-lists/</a> Leetcode Link
-/<em>*
- * Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.
- *
- * Created by lightsaber on 3/23/14.
- </em>/
-public class MergeKSortedList
-{</p>
-
-<pre><code>// Definition for singly-linked list.
-public class ListNode {
-    int val;
-    ListNode next;
-</code></pre></blockquote></blockquote>
-
-<pre><code>    ListNode(int x) {
-        val = x;
-        next = null;
-    }
-}
-
-public ListNode mergeKLists(ArrayList&lt;ListNode&gt; lists) {
-
-    if(lists == null || lists.size() == 0)
-    {
-        return null;
-    }
-
-    int listSize = lists.size();
-
-    while(listSize &gt; 1)
-    {
-        // merge two lists at a time, set into lists from the beginning
-        for(int i = 0; i &lt; listSize / 2; ++i)
-        {
-            ListNode listA = lists.get(2 * i);
-            ListNode listB = lists.get(2 * i + 1);
-            lists.set(i, mergeTwoLists(listA, listB));
-        }
-
-        // if there is one list left at last
-        if(listSize % 2 != 0)
-        {
-            // pay attention to the index, max index = size - 1
-            lists.set(listSize / 2, lists.get(listSize - 1));
-        }
-
-        // calculate list size for next iteration
-        listSize = (listSize + 1) / 2;
-    }
-
-    return lists.get(0);
-}
-
-/**
- * merge two sorted linked list in place
- * @param listA
- * @param listB
- * @return
- */
-
-public ListNode mergeTwoLists(ListNode listA, ListNode listB)
-{
-    // add dummy head to keep track of the start of the list
-    ListNode dummyHead = new ListNode(Integer.MIN_VALUE);
-    ListNode curTail = dummyHead;
-
-    while(true)
-    {
-        // stop point of the loop
-        // if we reach the end of either list
-        if(listA == null)
-        {
-            curTail.next = listB;
-            break;
-        }
-        else if(listB == null)
-        {
-            curTail.next = listA;
-            break;
-        }
-
-        if(listA.val &lt; listB.val)
-        {
-            curTail.next = listA;
-            listA = listA.next;
-        }
-        else
-        {
-            curTail.next = listB;
-            listB = listB.next;
-        }
-
-        curTail = curTail.next;
-    }
-
-    // return the node right after dummyHead
     return dummyHead.next;
 }
 </code></pre>
