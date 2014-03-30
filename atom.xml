@@ -4,7 +4,7 @@
   <title><![CDATA[lightsaber]]></title>
   <link href="http://xiaochenchen.github.io/atom.xml" rel="self"/>
   <link href="http://xiaochenchen.github.io/"/>
-  <updated>2014-03-30T15:56:13-04:00</updated>
+  <updated>2014-03-30T15:58:19-04:00</updated>
   <id>http://xiaochenchen.github.io/</id>
   <author>
     <name><![CDATA[lightsaber]]></name>
@@ -20,13 +20,21 @@
     <id>http://xiaochenchen.github.io/blog/2014/03/30/leetcode-combination-sum-ii</id>
     <content type="html"><![CDATA[<h3>Algorithm:</h3>
 
-<p>This problem (P2) is similar to <a href="http://xiaochenchen.github.io/blog/2014/03/30/leetcode-combination-sum/">Combination Sum</a>(P1) yet quite different.
-1. P1 allows to use on element multiple times while P2 does not.
-2. P1 has unique elements and P2 allows duplicates</p>
+<p>This problem (P2) is similar to <a href="http://xiaochenchen.github.io/blog/2014/03/30/leetcode-combination-sum/">Combination Sum</a> (P1) yet quite different.</p>
 
-<p>Same recursion solution with the following difference:
-1. When making recursive calls, set the <code>startIndex</code> to i + 1 instead i
-2. Discard duplicates after <code>startIndex</code> in the loop</p>
+<ol>
+<li>P1 allows to use on element multiple times while P2 does not</li>
+<li>P1 has unique elements and P2 allows duplicates</li>
+</ol>
+
+
+<p>Same recursion solution with the following difference:</p>
+
+<ol>
+<li>When making recursive calls, set the <code>startIndex</code> to i + 1 instead i</li>
+<li>Discard duplicates after <code>startIndex</code> in the loop</li>
+</ol>
+
 
 <figure class='code'><figcaption><span>Combination Sum II</span><a href='http://oj.leetcode.com/problems/combination-sum-ii/'>Leetcode Link</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
