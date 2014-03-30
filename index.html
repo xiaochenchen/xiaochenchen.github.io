@@ -6,20 +6,8 @@
 	<title>lightsaber</title>
     <meta name="author" content="lightsaber">
     
-	<meta name="description" content="Published on: Mar 30th, 2014 Tags: coding, leetcode, sum Algorithm: Recursive solution. Combination SumLeetcode Link1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14 &hellip;">
+	<meta name="description" content="Published on: Mar 30th, 2014 Tags: coding, leetcode, sum Algorithm: This problem (P2) is similar to Combination Sum(P1) yet quite different.
+1. P1 &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -102,6 +90,185 @@
 <!-- begin toload --> 
     <div id="content" class="inner">
         
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2014/03/30/leetcode-combination-sum-ii/">
+		
+			[Leetcode] Combination Sum II</a>
+	</h2>
+    <div class="entry-content">
+    <div class="meta">
+      <div class="date">Published on: 
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-30T15:44:39-04:00" pubdate data-updated="true">Mar 30<span>th</span>, 2014</time></div>
+      <div class="tags">Tags: 
+
+
+	<a class='category' href='/blog/categories/coding/'>coding</a>, <a class='category' href='/blog/categories/leetcode/'>leetcode</a>, <a class='category' href='/blog/categories/sum/'>sum</a>
+
+
+</div>
+    </div>
+		<h3>Algorithm:</h3>
+
+<p>This problem (P2) is similar to <a href="http://xiaochenchen.github.io/blog/2014/03/30/leetcode-combination-sum/">Combination Sum</a>(P1) yet quite different.
+1. P1 allows to use on element multiple times while P2 does not.
+2. P1 has unique elements and P2 allows duplicates</p>
+
+<p>Same recursion solution with the following difference:
+1. When making recursive calls, set the <code>startIndex</code> to i + 1 instead i
+2. Discard duplicates after <code>startIndex</code> in the loop</p>
+
+<figure class='code'><figcaption><span>Combination Sum II</span><a href='http://oj.leetcode.com/problems/combination-sum-ii/'>Leetcode Link</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="cm">/**</span>
+</span><span class='line'><span class="cm"> * Given a collection of candidate numbers (C) and a target number (T),</span>
+</span><span class='line'><span class="cm"> * find all unique combinations in C where the candidate numbers sums to T.</span>
+</span><span class='line'><span class="cm"> * Each number in C may only be used once in the combination.</span>
+</span><span class='line'><span class="cm"> * Note:</span>
+</span><span class='line'><span class="cm"> * All numbers (including target) will be positive integers.</span>
+</span><span class='line'><span class="cm"> * Elements in a combination (a1, a2, ... , ak) must be in non-descending order.</span>
+</span><span class='line'><span class="cm"> * (ie, a1 &lt;= a2 &lt;= ... &lt;= ak).</span>
+</span><span class='line'><span class="cm"> * The solution set must not contain duplicate combinations.</span>
+</span><span class='line'><span class="cm"> *</span>
+</span><span class='line'><span class="cm"> * For example, given candidate set 10,1,2,7,6,1,5 and target 8,</span>
+</span><span class='line'><span class="cm"> * A solution set is:</span>
+</span><span class='line'><span class="cm"> * [1, 7]</span>
+</span><span class='line'><span class="cm"> * [1, 2, 5]</span>
+</span><span class='line'><span class="cm"> * [2, 6]</span>
+</span><span class='line'><span class="cm"> * [1, 1, 6]</span>
+</span><span class='line'><span class="cm"> *</span>
+</span><span class='line'><span class="cm"> * Created by lightsaber on 3/30/14.</span>
+</span><span class='line'><span class="cm"> */</span>
+</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CombinationSumII</span>
+</span><span class='line'><span class="o">{</span>
+</span><span class='line'>    <span class="kd">public</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span> <span class="nf">combinationSum2</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">num</span><span class="o">,</span> <span class="kt">int</span> <span class="n">target</span><span class="o">)</span>
+</span><span class='line'>    <span class="o">{</span>
+</span><span class='line'>        <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span> <span class="n">results</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;();</span>
+</span><span class='line'>        <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;();</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="c1">// sort input array so that the results combination will be in non-descending order</span>
+</span><span class='line'>        <span class="n">Arrays</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="n">num</span><span class="o">);</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="n">generate</span><span class="o">(</span><span class="n">num</span><span class="o">,</span> <span class="n">results</span><span class="o">,</span> <span class="n">result</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">target</span><span class="o">);</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">return</span> <span class="n">results</span><span class="o">;</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">generate</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">num</span><span class="o">,</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span> <span class="n">results</span><span class="o">,</span>
+</span><span class='line'>                         <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">result</span><span class="o">,</span> <span class="kt">int</span> <span class="n">startIndex</span><span class="o">,</span> <span class="kt">int</span> <span class="n">currSum</span><span class="o">,</span> <span class="kt">int</span> <span class="n">target</span><span class="o">)</span>
+</span><span class='line'>    <span class="o">{</span>
+</span><span class='line'>        <span class="k">if</span><span class="o">(</span><span class="n">currSum</span> <span class="o">==</span> <span class="n">target</span><span class="o">)</span>
+</span><span class='line'>        <span class="o">{</span>
+</span><span class='line'>            <span class="c1">// found a valid combination</span>
+</span><span class='line'>            <span class="n">results</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;(</span><span class="n">result</span><span class="o">));</span>
+</span><span class='line'>            <span class="k">return</span><span class="o">;</span>
+</span><span class='line'>        <span class="o">}</span>
+</span><span class='line'>        <span class="k">else</span> <span class="nf">if</span><span class="o">(</span><span class="n">currSum</span> <span class="o">&gt;</span> <span class="n">target</span><span class="o">)</span>
+</span><span class='line'>        <span class="o">{</span>
+</span><span class='line'>            <span class="k">return</span><span class="o">;</span>
+</span><span class='line'>        <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">startIndex</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">num</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span>
+</span><span class='line'>        <span class="o">{</span>
+</span><span class='line'>            <span class="c1">// in this loop, we are taking one of the numbers after startIndex (inclusive)</span>
+</span><span class='line'>            <span class="c1">// skip duplicates after startIndex</span>
+</span><span class='line'>            <span class="k">if</span><span class="o">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="n">startIndex</span> <span class="o">&amp;&amp;</span> <span class="n">num</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">==</span> <span class="n">num</span><span class="o">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="o">])</span>
+</span><span class='line'>            <span class="o">{</span>
+</span><span class='line'>                <span class="k">continue</span><span class="o">;</span>
+</span><span class='line'>            <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>            <span class="n">result</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">num</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+</span><span class='line'>            <span class="n">generate</span><span class="o">(</span><span class="n">num</span><span class="o">,</span> <span class="n">results</span><span class="o">,</span> <span class="n">result</span><span class="o">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">,</span> <span class="n">currSum</span> <span class="o">+</span> <span class="n">num</span><span class="o">[</span><span class="n">i</span><span class="o">],</span> <span class="n">target</span><span class="o">);</span>
+</span><span class='line'>            <span class="n">result</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">result</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
+</span><span class='line'>        <span class="o">}</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+		
+		
+	</div>
+
+<div class="meta">
+	
+</div>
+</article>
 
 
     <article class="post">
@@ -1560,127 +1727,10 @@ Given n will always be valid.</p></blockquote>
 </div>
 </article>
 
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2014/03/23/leetcode-longest-common-prefix/">
-		
-			[Leetcode] Longest Common Prefix</a>
-	</h2>
-    <div class="entry-content">
-    <div class="meta">
-      <div class="date">Published on: 
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-03-23T15:36:43-04:00" pubdate data-updated="true">Mar 23<span>rd</span>, 2014</time></div>
-      <div class="tags">Tags: 
-
-
-	<a class='category' href='/blog/categories/brute-force/'>brute force</a>, <a class='category' href='/blog/categories/coding/'>coding</a>, <a class='category' href='/blog/categories/leetcode/'>leetcode</a>
-
-
-</div>
-    </div>
-		<figure class='code'><figcaption><span>Longest Common Prefix</span><a href='http://oj.leetcode.com/problems/longest-common-prefix/'>Leetcode Link</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="cm">/**</span>
-</span><span class='line'><span class="cm"> * Write a function to find the longest common prefix string amongst an array of strings.</span>
-</span><span class='line'><span class="cm"> *</span>
-</span><span class='line'><span class="cm"> * Solution:</span>
-</span><span class='line'><span class="cm"> *  start from the first char in first string, check if it in all other strings, if not, return</span>
-</span><span class='line'><span class="cm"> *</span>
-</span><span class='line'><span class="cm"> */</span>
-</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LongestCommonPrefix</span>
-</span><span class='line'><span class="o">{</span>
-</span><span class='line'>    <span class="kd">public</span> <span class="n">String</span> <span class="nf">longestCommonPrefix</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">strs</span><span class="o">)</span>
-</span><span class='line'>    <span class="o">{</span>
-</span><span class='line'>        <span class="c1">// if null input or empty input, return empty string</span>
-</span><span class='line'>        <span class="k">if</span><span class="o">(</span><span class="n">strs</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">strs</span><span class="o">.</span><span class="na">length</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span>
-</span><span class='line'>        <span class="o">{</span>
-</span><span class='line'>            <span class="k">return</span> <span class="s">&quot;&quot;</span><span class="o">;</span>
-</span><span class='line'>        <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="n">StringBuilder</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="o">();</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">strs</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">length</span><span class="o">();</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span>
-</span><span class='line'>        <span class="o">{</span>
-</span><span class='line'>            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">strs</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="o">++</span><span class="n">j</span><span class="o">)</span>
-</span><span class='line'>            <span class="o">{</span>
-</span><span class='line'>                <span class="c1">// if the current char in strs[0] doesn&#39;t exist in any following str</span>
-</span><span class='line'>                <span class="k">if</span><span class="o">(</span><span class="n">strs</span><span class="o">[</span><span class="n">j</span><span class="o">].</span><span class="na">length</span><span class="o">()</span> <span class="o">&lt;=</span> <span class="n">i</span> <span class="o">||</span> <span class="n">strs</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">)</span> <span class="o">!=</span> <span class="n">strs</span><span class="o">[</span><span class="n">j</span><span class="o">].</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">))</span>
-</span><span class='line'>                <span class="o">{</span>
-</span><span class='line'>                    <span class="c1">// return current common prefix result</span>
-</span><span class='line'>                    <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
-</span><span class='line'>                <span class="o">}</span>
-</span><span class='line'>            <span class="o">}</span>
-</span><span class='line'>            <span class="c1">// if the current char exists in all other strs, append it to common prefix</span>
-</span><span class='line'>            <span class="n">result</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">strs</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="na">charAt</span><span class="o">(</span><span class="n">i</span><span class="o">));</span>
-</span><span class='line'>        <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="c1">// if all chars in strs[0] are prefix in other strs, return strs[0]</span>
-</span><span class='line'>        <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-		
-		
-	</div>
-
-<div class="meta">
-	
-</div>
-</article>
-
 <nav id="pagenavi">
     
+    
+        <a href="/blog/page/2/" class="next">Next</a>
     
     <div class="center"><a href="/blog/archives">Blog Archives</a></div>
 </nav>

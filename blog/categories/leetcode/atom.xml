@@ -4,7 +4,7 @@
   <title><![CDATA[Category: leetcode | lightsaber]]></title>
   <link href="http://xiaochenchen.github.io/blog/categories/leetcode/atom.xml" rel="self"/>
   <link href="http://xiaochenchen.github.io/"/>
-  <updated>2014-03-30T15:11:42-04:00</updated>
+  <updated>2014-03-30T15:56:13-04:00</updated>
   <id>http://xiaochenchen.github.io/</id>
   <author>
     <name><![CDATA[lightsaber]]></name>
@@ -12,6 +12,92 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[[leetcode] Combination Sum II]]></title>
+    <link href="http://xiaochenchen.github.io/blog/2014/03/30/leetcode-combination-sum-ii/"/>
+    <updated>2014-03-30T15:44:39-04:00</updated>
+    <id>http://xiaochenchen.github.io/blog/2014/03/30/leetcode-combination-sum-ii</id>
+    <content type="html"><![CDATA[<h3>Algorithm:</h3>
+
+<p>This problem (P2) is similar to <a href="http://xiaochenchen.github.io/blog/2014/03/30/leetcode-combination-sum/">Combination Sum</a>(P1) yet quite different.
+1. P1 allows to use on element multiple times while P2 does not.
+2. P1 has unique elements and P2 allows duplicates</p>
+
+<p>Same recursion solution with the following difference:
+1. When making recursive calls, set the <code>startIndex</code> to i + 1 instead i
+2. Discard duplicates after <code>startIndex</code> in the loop</p>
+
+<p>``` java Combination Sum II <a href="http://oj.leetcode.com/problems/combination-sum-ii/">http://oj.leetcode.com/problems/combination-sum-ii/</a> Leetcode Link
+/<em>*
+ * Given a collection of candidate numbers &copy; and a target number (T),
+ * find all unique combinations in C where the candidate numbers sums to T.
+ * Each number in C may only be used once in the combination.
+ * Note:
+ * All numbers (including target) will be positive integers.
+ * Elements in a combination (a1, a2, &hellip; , ak) must be in non-descending order.
+ * (ie, a1 &lt;= a2 &lt;= &hellip; &lt;= ak).
+ * The solution set must not contain duplicate combinations.
+ *
+ * For example, given candidate set 10,1,2,7,6,1,5 and target 8,
+ * A solution set is:
+ * [1, 7]
+ * [1, 2, 5]
+ * [2, 6]
+ * [1, 1, 6]
+ *
+ * Created by lightsaber on 3/30/14.
+ </em>/
+public class CombinationSumII
+{</p>
+
+<pre><code>public ArrayList&lt;ArrayList&lt;Integer&gt;&gt; combinationSum2(int[] num, int target)
+{
+    ArrayList&lt;ArrayList&lt;Integer&gt;&gt; results = new ArrayList&lt;ArrayList&lt;Integer&gt;&gt;();
+    ArrayList&lt;Integer&gt; result = new ArrayList&lt;Integer&gt;();
+
+    // sort input array so that the results combination will be in non-descending order
+    Arrays.sort(num);
+
+    generate(num, results, result, 0, 0, target);
+
+    return results;
+}
+
+public void generate(int[] num, ArrayList&lt;ArrayList&lt;Integer&gt;&gt; results,
+                     ArrayList&lt;Integer&gt; result, int startIndex, int currSum, int target)
+{
+    if(currSum == target)
+    {
+        // found a valid combination
+        results.add(new ArrayList&lt;Integer&gt;(result));
+        return;
+    }
+    else if(currSum &gt; target)
+    {
+        return;
+    }
+
+    for(int i = startIndex; i &lt; num.length; ++i)
+    {
+        // in this loop, we are taking one of the numbers after startIndex (inclusive)
+        // skip duplicates after startIndex
+        if(i &gt; startIndex &amp;&amp; num[i] == num[i - 1])
+        {
+            continue;
+        }
+
+        result.add(num[i]);
+        generate(num, results, result, i + 1, currSum + num[i], target);
+        result.remove(result.size() - 1);
+    }
+}
+</code></pre>
+
+<p>}
+```</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[[leetcode] Combination Sum]]></title>
@@ -242,104 +328,6 @@ public class StrStr
     }
 
     return null;
-}
-</code></pre>
-
-<p>}
-```</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[[leetcode] Reverse Nodes in K Group]]></title>
-    <link href="http://xiaochenchen.github.io/blog/2014/03/27/leetcode-reverse-nodes-in-k-group/"/>
-    <updated>2014-03-27T22:03:43-04:00</updated>
-    <id>http://xiaochenchen.github.io/blog/2014/03/27/leetcode-reverse-nodes-in-k-group</id>
-    <content type="html"><![CDATA[<h3>Algorithm</h3>
-
-<p>This question is similar to <a href="http://xiaochenchen.github.io/blog/2014/03/27/leetcode-swap-nodes-in-pairs/">Swap Nodes in Pairs</a> in that we need to keep track of the Node before the K group, we call it <code>pre</code> reference. When we are done with the K group, we need to change pre to point to the Begin of this K group.</p>
-
-<p>In order to reverse K group, we keep track of the beginning <code>kBegin</code> and ending <code>kEnd</code> of currently reversed nodes. When processing for next node, we move <code>kEnd</code> to point to its next, insert itself before <code>kBegin</code>, and update <code>kBegin</code>. Until we reserverd K nodes.
-``` java Reverse Nodes in K Group <a href="http://oj.leetcode.com/problems/reverse-nodes-in-k-group/">http://oj.leetcode.com/problems/reverse-nodes-in-k-group/</a> Leetcode Link
-/<em>*
- * Given a linked list, reverse the nodes of the
- * linked list k at a time and return its modified list.
- * If the number of nodes is not a multiple of k
- * then left-out nodes in the end should remain as it is.
- * You may not alter the values in the nodes, only nodes itself may be changed.
- *
- * Only constant memory is allowed.
- *
- * For example,
- * Given this linked list: 1->2->3->4->5
- * For k = 2, you should return: 2->1->4->3->5
- * For k = 3, you should return: 3->2->1->4->5
- *
- * Created by lightsaber on 3/27/14.
- </em>/
-public class ReverseNodesInKGroup
-{</p>
-
-<pre><code>// Definition for singly-linked list.
-public class ListNode {
-    int val;
-    ListNode next;
-
-    ListNode(int x) {
-        val = x;
-        next = null;
-    }
-}
-
-public ListNode reverseKGroup(ListNode head, int k) {
-
-    ListNode dummyHead = new ListNode(Integer.MIN_VALUE);
-    dummyHead.next = head;
-
-    ListNode pre = dummyHead;
-    ListNode kBegin = head;
-    ListNode kEnd = head;
-
-    while(hasAtLeastKNodes(kBegin, k))
-    {
-        int count = 1;
-
-        while(count &lt; k)
-        {
-            ListNode temp = kEnd.next.next;
-            kEnd.next.next = kBegin;
-            kBegin = kEnd.next;
-            kEnd.next = temp;
-            count++;
-        }
-
-        // set the references for next k nodes
-        pre.next = kBegin;
-        pre = kEnd;
-        kBegin = pre.next;
-        kEnd = pre.next;
-    }
-
-    return dummyHead.next;
-}
-
-// utility function to check if there are at least k nodes from head
-public boolean hasAtLeastKNodes(ListNode head, int k)
-{
-    int count = 0;
-
-    ListNode curr = head;
-    while(curr != null)
-    {
-        count++;
-        if(count == k)
-        {
-            return true;
-        }
-        curr = curr.next;
-    }
-
-    return false;
 }
 </code></pre>
 
