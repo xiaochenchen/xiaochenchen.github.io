@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: sum | lightsaber]]></title>
+  <link href="http://xiaochenchen.github.io/blog/categories/sum/atom.xml" rel="self"/>
+  <link href="http://xiaochenchen.github.io/"/>
+  <updated>2014-03-30T15:11:42-04:00</updated>
+  <id>http://xiaochenchen.github.io/</id>
+  <author>
+    <name><![CDATA[lightsaber]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[[leetcode] Combination Sum]]></title>
+    <link href="http://xiaochenchen.github.io/blog/2014/03/30/leetcode-combination-sum/"/>
+    <updated>2014-03-30T14:51:10-04:00</updated>
+    <id>http://xiaochenchen.github.io/blog/2014/03/30/leetcode-combination-sum</id>
+    <content type="html"><![CDATA[<h3>Algorithm:</h3>
+
+<p>Recursive solution.
+``` java Combination Sum <a href="http://oj.leetcode.com/problems/combination-sum">http://oj.leetcode.com/problems/combination-sum</a> Leetcode Link
+/<em>*
+ * Given a set of candidate numbers &copy; and a target number (T),
+ * find all unique combinations in C where the candidate numbers sums to T.
+ * The same repeated number may be chosen from C unlimited number of times.
+ *
+ * Note:
+ * All numbers (including target) will be positive integers.
+ * Elements in a combination (a1, a2, &hellip; , ak)
+ * must be in non-descending order. (ie, a1 &lt;= a2 &lt;= &hellip; &lt;= ak).
+ * The solution set must not contain duplicate combinations.
+ *
+ * For example, given candidate set 2,3,6,7 and target 7,
+ *
+ * A solution set is:
+ * [7]
+ * [2, 2, 3]
+ *
+ * Created by lightsaber on 3/29/14.
+ </em>/
+public class CombinationSum
+{</p>
+
+<pre><code>public ArrayList&lt;ArrayList&lt;Integer&gt;&gt; combinationSum(int[] candidates, int target)
+{
+    ArrayList&lt;ArrayList&lt;Integer&gt;&gt; results = new ArrayList&lt;ArrayList&lt;Integer&gt;&gt;();
+    ArrayList&lt;Integer&gt; result = new ArrayList&lt;Integer&gt;();
+
+    Arrays.sort(candidates);
+
+    generate(candidates, results, result, 0, 0, target);
+
+    return results;
+}
+
+public void generate(int[] candidates, ArrayList&lt;ArrayList&lt;Integer&gt;&gt; results,
+                     ArrayList&lt;Integer&gt; result, int startIndex, int currSum, int target)
+{
+    // found a valid combination
+    if(currSum == target)
+    {
+        results.add(new ArrayList&lt;Integer&gt;(result));
+        return;
+    }
+    // currSum is greater than target, stop right here
+    else if(currSum &gt; target)
+    {
+        return;
+    }
+
+    for(int i = startIndex; i &lt; candidates.length; ++i)
+    {
+        result.add(candidates[i]);
+        generate(candidates, results, result, i, currSum + candidates[i], target);
+        result.remove(result.size() - 1);
+    }
+}
+</code></pre>
+
+<p>}
+```</p>
+]]></content>
+  </entry>
+  
+</feed>

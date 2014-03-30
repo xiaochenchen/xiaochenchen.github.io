@@ -4,7 +4,7 @@
   <title><![CDATA[Category: coding | lightsaber]]></title>
   <link href="http://xiaochenchen.github.io/blog/categories/coding/atom.xml" rel="self"/>
   <link href="http://xiaochenchen.github.io/"/>
-  <updated>2014-03-30T14:49:04-04:00</updated>
+  <updated>2014-03-30T15:11:42-04:00</updated>
   <id>http://xiaochenchen.github.io/</id>
   <author>
     <name><![CDATA[lightsaber]]></name>
@@ -12,6 +12,78 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[[leetcode] Combination Sum]]></title>
+    <link href="http://xiaochenchen.github.io/blog/2014/03/30/leetcode-combination-sum/"/>
+    <updated>2014-03-30T14:51:10-04:00</updated>
+    <id>http://xiaochenchen.github.io/blog/2014/03/30/leetcode-combination-sum</id>
+    <content type="html"><![CDATA[<h3>Algorithm:</h3>
+
+<p>Recursive solution.
+``` java Combination Sum <a href="http://oj.leetcode.com/problems/combination-sum">http://oj.leetcode.com/problems/combination-sum</a> Leetcode Link
+/<em>*
+ * Given a set of candidate numbers &copy; and a target number (T),
+ * find all unique combinations in C where the candidate numbers sums to T.
+ * The same repeated number may be chosen from C unlimited number of times.
+ *
+ * Note:
+ * All numbers (including target) will be positive integers.
+ * Elements in a combination (a1, a2, &hellip; , ak)
+ * must be in non-descending order. (ie, a1 &lt;= a2 &lt;= &hellip; &lt;= ak).
+ * The solution set must not contain duplicate combinations.
+ *
+ * For example, given candidate set 2,3,6,7 and target 7,
+ *
+ * A solution set is:
+ * [7]
+ * [2, 2, 3]
+ *
+ * Created by lightsaber on 3/29/14.
+ </em>/
+public class CombinationSum
+{</p>
+
+<pre><code>public ArrayList&lt;ArrayList&lt;Integer&gt;&gt; combinationSum(int[] candidates, int target)
+{
+    ArrayList&lt;ArrayList&lt;Integer&gt;&gt; results = new ArrayList&lt;ArrayList&lt;Integer&gt;&gt;();
+    ArrayList&lt;Integer&gt; result = new ArrayList&lt;Integer&gt;();
+
+    Arrays.sort(candidates);
+
+    generate(candidates, results, result, 0, 0, target);
+
+    return results;
+}
+
+public void generate(int[] candidates, ArrayList&lt;ArrayList&lt;Integer&gt;&gt; results,
+                     ArrayList&lt;Integer&gt; result, int startIndex, int currSum, int target)
+{
+    // found a valid combination
+    if(currSum == target)
+    {
+        results.add(new ArrayList&lt;Integer&gt;(result));
+        return;
+    }
+    // currSum is greater than target, stop right here
+    else if(currSum &gt; target)
+    {
+        return;
+    }
+
+    for(int i = startIndex; i &lt; candidates.length; ++i)
+    {
+        result.add(candidates[i]);
+        generate(candidates, results, result, i, currSum + candidates[i], target);
+        result.remove(result.size() - 1);
+    }
+}
+</code></pre>
+
+<p>}
+```</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[[leetcode] Generate Parentheses]]></title>
@@ -268,69 +340,6 @@ public boolean hasAtLeastKNodes(ListNode head, int k)
     }
 
     return false;
-}
-</code></pre>
-
-<p>}
-```</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[[leetcode] Swap Nodes in Pairs]]></title>
-    <link href="http://xiaochenchen.github.io/blog/2014/03/27/leetcode-swap-nodes-in-pairs/"/>
-    <updated>2014-03-27T21:19:11-04:00</updated>
-    <id>http://xiaochenchen.github.io/blog/2014/03/27/leetcode-swap-nodes-in-pairs</id>
-    <content type="html"><![CDATA[<h3>Algorithm:</h3>
-
-<p>Use a pre reference, to keep track of previous node before current pair.
-Swap that pair. Take care of the end of the pair, the pair itself and the node before current pair.
-``` java Swap Nodes in Pairs <a href="http://oj.leetcode.com/problems/swap-nodes-in-pairs/">http://oj.leetcode.com/problems/swap-nodes-in-pairs/</a> Leetcode Link
-/<em>*
- * Given a linked list, swap every two adjacent nodes and return its head.
- *
- *      For example,
- *      Given 1->2->3->4, you should return the list as 2->1->4->3.
- *
- * Your algorithm should use only constant space.
- * You may not modify the values in the list, only nodes itself can be changed.
- *
- * Created by lightsaber on 3/26/14.
- </em>/
-public class SwapNodesInPairs
-{</p>
-
-<pre><code>// Definition for singly-linked list.
-public class ListNode {
-    int val;
-    ListNode next;
-
-    ListNode(int x) {
-        val = x;
-        next = null;
-    }
-}
-
-public ListNode swapPairs(ListNode head)
-{
-    ListNode dummyHead = new ListNode(Integer.MIN_VALUE);
-    dummyHead.next = head;
-
-    ListNode pre = dummyHead;
-    ListNode curr = head;
-
-    while(curr != null &amp;&amp; curr.next != null)
-    {
-        ListNode temp = curr.next.next;
-        curr.next.next = curr;
-        pre.next = curr.next;
-        curr.next = temp;
-
-        pre = curr;
-        curr = curr.next;
-    }
-
-    return dummyHead.next;
 }
 </code></pre>
 
