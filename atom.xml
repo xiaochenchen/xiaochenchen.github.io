@@ -4,7 +4,7 @@
   <title><![CDATA[lightsaber]]></title>
   <link href="http://xiaochenchen.github.io/atom.xml" rel="self"/>
   <link href="http://xiaochenchen.github.io/"/>
-  <updated>2014-03-27T22:55:23-04:00</updated>
+  <updated>2014-03-30T14:43:59-04:00</updated>
   <id>http://xiaochenchen.github.io/</id>
   <author>
     <name><![CDATA[lightsaber]]></name>
@@ -12,6 +12,121 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[[leetcode] Longest Consecutive Sequence]]></title>
+    <link href="http://xiaochenchen.github.io/blog/2014/03/30/leetcode-longest-consecutive-sequence/"/>
+    <updated>2014-03-30T14:23:31-04:00</updated>
+    <id>http://xiaochenchen.github.io/blog/2014/03/30/leetcode-longest-consecutive-sequence</id>
+    <content type="html"><![CDATA[<h3>Algorithm:</h3>
+
+<p>Store all elements in an HashSet H.
+Start scaning the array, for each element i in the array, if i is in H, check whether i-1 is in H, if yes, remove i-1 from H, continue to check i &ndash; 2 and not found in H. Do the same thing from i to its right. Keep track of current max length. Return max length at the end.</p>
+
+<figure class='code'><figcaption><span>Longest Consecutive Sequence</span><a href='http://oj.leetcode.com/problems/longest-consecutive-sequence/'>Leetcode Link</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="cm">/**</span>
+</span><span class='line'><span class="cm"> *</span>
+</span><span class='line'><span class="cm"> * Given an unsorted array of integers,</span>
+</span><span class='line'><span class="cm"> * find the length of the longest consecutive elements sequence.</span>
+</span><span class='line'><span class="cm"> *</span>
+</span><span class='line'><span class="cm"> * For example,</span>
+</span><span class='line'><span class="cm"> * Given [100, 4, 200, 1, 3, 2],</span>
+</span><span class='line'><span class="cm"> * The longest consecutive elements sequence is [1, 2, 3, 4]. Return its length: 4.</span>
+</span><span class='line'><span class="cm"> * Your algorithm should run in O(n) complexity.</span>
+</span><span class='line'><span class="cm"> *</span>
+</span><span class='line'><span class="cm"> * Created by lightsaber on 3/27/14.</span>
+</span><span class='line'><span class="cm"> */</span>
+</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LongestConsecutiveSequence</span>
+</span><span class='line'><span class="o">{</span>
+</span><span class='line'>    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">longestConsecutive</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">num</span><span class="o">)</span>
+</span><span class='line'>    <span class="o">{</span>
+</span><span class='line'>        <span class="n">Set</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">numbers</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;();</span>
+</span><span class='line'>        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">:</span> <span class="n">num</span><span class="o">)</span>
+</span><span class='line'>        <span class="o">{</span>
+</span><span class='line'>            <span class="n">numbers</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+</span><span class='line'>        <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="kt">int</span> <span class="n">longest</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+</span><span class='line'>        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">:</span> <span class="n">num</span><span class="o">)</span>
+</span><span class='line'>        <span class="o">{</span>
+</span><span class='line'>            <span class="k">if</span><span class="o">(</span><span class="n">numbers</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="n">i</span><span class="o">))</span>
+</span><span class='line'>            <span class="o">{</span>
+</span><span class='line'>                <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="n">i</span><span class="o">,</span> <span class="n">right</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'>                <span class="k">while</span><span class="o">(</span><span class="n">numbers</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="n">left</span> <span class="o">-</span> <span class="mi">1</span><span class="o">))</span>
+</span><span class='line'>                <span class="o">{</span>
+</span><span class='line'>                    <span class="n">numbers</span><span class="o">.</span><span class="na">remove</span><span class="o">(--</span><span class="n">left</span><span class="o">);</span>
+</span><span class='line'>                <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>                <span class="k">while</span><span class="o">(</span><span class="n">numbers</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="n">right</span> <span class="o">+</span> <span class="mi">1</span><span class="o">))</span>
+</span><span class='line'>                <span class="o">{</span>
+</span><span class='line'>                    <span class="n">numbers</span><span class="o">.</span><span class="na">remove</span><span class="o">(++</span><span class="n">right</span><span class="o">);</span>
+</span><span class='line'>                <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>                <span class="k">if</span><span class="o">(</span><span class="n">right</span> <span class="o">-</span> <span class="n">left</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&gt;</span> <span class="n">longest</span><span class="o">)</span>
+</span><span class='line'>                <span class="o">{</span>
+</span><span class='line'>                    <span class="n">longest</span> <span class="o">=</span> <span class="n">right</span> <span class="o">-</span> <span class="n">left</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+</span><span class='line'>                <span class="o">}</span>
+</span><span class='line'>            <span class="o">}</span>
+</span><span class='line'>        <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">return</span> <span class="n">longest</span><span class="o">;</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[[leetcode] Implement strStr()]]></title>

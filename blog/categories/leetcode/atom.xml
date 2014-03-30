@@ -4,7 +4,7 @@
   <title><![CDATA[Category: leetcode | lightsaber]]></title>
   <link href="http://xiaochenchen.github.io/blog/categories/leetcode/atom.xml" rel="self"/>
   <link href="http://xiaochenchen.github.io/"/>
-  <updated>2014-03-27T22:55:23-04:00</updated>
+  <updated>2014-03-30T14:43:59-04:00</updated>
   <id>http://xiaochenchen.github.io/</id>
   <author>
     <name><![CDATA[lightsaber]]></name>
@@ -12,6 +12,72 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[[leetcode] Longest Consecutive Sequence]]></title>
+    <link href="http://xiaochenchen.github.io/blog/2014/03/30/leetcode-longest-consecutive-sequence/"/>
+    <updated>2014-03-30T14:23:31-04:00</updated>
+    <id>http://xiaochenchen.github.io/blog/2014/03/30/leetcode-longest-consecutive-sequence</id>
+    <content type="html"><![CDATA[<h3>Algorithm:</h3>
+
+<p>Store all elements in an HashSet H.
+Start scaning the array, for each element i in the array, if i is in H, check whether i-1 is in H, if yes, remove i-1 from H, continue to check i &ndash; 2 and not found in H. Do the same thing from i to its right. Keep track of current max length. Return max length at the end.
+``` java Longest Consecutive Sequence <a href="http://oj.leetcode.com/problems/longest-consecutive-sequence/">http://oj.leetcode.com/problems/longest-consecutive-sequence/</a> Leetcode Link
+/<em>*
+ *
+ * Given an unsorted array of integers,
+ * find the length of the longest consecutive elements sequence.
+ *
+ * For example,
+ * Given [100, 4, 200, 1, 3, 2],
+ * The longest consecutive elements sequence is [1, 2, 3, 4]. Return its length: 4.
+ * Your algorithm should run in O(n) complexity.
+ *
+ * Created by lightsaber on 3/27/14.
+ </em>/
+public class LongestConsecutiveSequence
+{</p>
+
+<pre><code>public int longestConsecutive(int[] num)
+{
+    Set&lt;Integer&gt; numbers = new HashSet&lt;Integer&gt;();
+    for(int i : num)
+    {
+        numbers.add(i);
+    }
+
+    int longest = 0;
+    for(int i : num)
+    {
+        if(numbers.contains(i))
+        {
+            int left = i, right = i;
+
+            while(numbers.contains(left - 1))
+            {
+                numbers.remove(--left);
+            }
+
+            while(numbers.contains(right + 1))
+            {
+                numbers.remove(++right);
+            }
+
+            if(right - left + 1 &gt; longest)
+            {
+                longest = right - left + 1;
+            }
+        }
+    }
+
+    return longest;
+}
+</code></pre>
+
+<p>}
+```</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[[leetcode] Implement strStr()]]></title>
@@ -325,69 +391,6 @@ public ListNode mergeTwoLists(ListNode listA, ListNode listB)
 
     // return the node right after dummyHead
     return dummyHead.next;
-}
-</code></pre>
-
-<p>}
-```</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[[leetcode] Valid Parentheses]]></title>
-    <link href="http://xiaochenchen.github.io/blog/2014/03/23/leetcode-valid-parentheses/"/>
-    <updated>2014-03-23T22:19:46-04:00</updated>
-    <id>http://xiaochenchen.github.io/blog/2014/03/23/leetcode-valid-parentheses</id>
-    <content type="html"><![CDATA[<p>Scan through the string, if left parenthesis is encountered, push into stack, if right parenthesis is encountered, match with the top element from the stack.
-``` java Valid Parentheses <a href="http://oj.leetcode.com/problems/valid-parentheses/">http://oj.leetcode.com/problems/valid-parentheses/</a> Leetcode Link
-/<em>*
- * Valid Parentheses
- *
- * Given a string containing just the characters &lsquo;(&rsquo;, &lsquo;)&rsquo;, &lsquo;{&rsquo;, &lsquo;}&rsquo;, &lsquo;[&rsquo; and &lsquo;]&rsquo;,
- * determine if the input string is valid. The brackets must close in the correct order,
- * &ldquo;()&rdquo; and &ldquo;()[]{}&rdquo; are all valid but &ldquo;(]&rdquo; and &ldquo;([)]&rdquo; are not.
- *
- * Created by lightsaber on 3/23/14.
- </em>/
-public class ValidParentheses
-{</p>
-
-<pre><code>public boolean isValid(String s) {
-    Stack&lt;Character&gt; leftParentheses = new Stack&lt;Character&gt;();
-    for(char c : s.toCharArray())
-    {
-        // if left parenthesis, push into stack, continue to next char
-        if(c == '(' || c == '[' || c == '{')
-        {
-            leftParentheses.push(c);
-            continue;
-        }
-
-        // if stack empty, return false
-        if(leftParentheses.isEmpty())
-        {
-            return false;
-        }
-
-        // check if the top of stack matches with current char
-        char topOfStack = leftParentheses.pop();
-        if( !((c == ')' &amp;&amp; topOfStack == '(')
-                    || (c == ']') &amp;&amp; topOfStack == '['
-                    || (c == '}') &amp;&amp; topOfStack == '{') )
-        {
-            return false;
-        }
-    }
-
-    // if nothing left in the stack, return true
-    if(leftParentheses.isEmpty())
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
 }
 </code></pre>
 
