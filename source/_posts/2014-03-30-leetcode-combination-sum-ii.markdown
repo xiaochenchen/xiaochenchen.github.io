@@ -9,11 +9,14 @@ categories:
 - sum
 ---
 ###Algorithm:
-This problem (P2) is similar to [Combination Sum](http://xiaochenchen.github.io/blog/2014/03/30/leetcode-combination-sum/)(P1) yet quite different.
-1. P1 allows to use on element multiple times while P2 does not.
+
+This problem (P2) is similar to [Combination Sum](http://xiaochenchen.github.io/blog/2014/03/30/leetcode-combination-sum/) (P1) yet quite different.
+
+1. P1 allows to use on element multiple times while P2 does not
 2. P1 has unique elements and P2 allows duplicates
 
 Same recursion solution with the following difference:
+
 1. When making recursive calls, set the `startIndex` to i + 1 instead i
 2. Discard duplicates after `startIndex` in the loop
 
