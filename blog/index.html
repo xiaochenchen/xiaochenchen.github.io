@@ -6,7 +6,7 @@
 	<title>lightsaber</title>
     <meta name="author" content="lightsaber">
     
-	<meta name="description" content="Published on: Mar 30th, 2014 Tags: coding, leetcode, sum Algorithm: This problem (P2) is similar to Combination Sum (P1) yet quite different. P1 &hellip;">
+	<meta name="description" content="Published on: Mar 30th, 2014 Tags: array, coding, leetcode Algorithm: For each positive element e in the array A, swap the element to index e &ndash &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -89,6 +89,154 @@
 <!-- begin toload --> 
     <div id="content" class="inner">
         
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2014/03/30/leetcode-first-missing-positive/">
+		
+			[Leetcode] First Missing Positive</a>
+	</h2>
+    <div class="entry-content">
+    <div class="meta">
+      <div class="date">Published on: 
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-30T22:17:24-04:00" pubdate data-updated="true">Mar 30<span>th</span>, 2014</time></div>
+      <div class="tags">Tags: 
+
+
+	<a class='category' href='/blog/categories/array/'>array</a>, <a class='category' href='/blog/categories/coding/'>coding</a>, <a class='category' href='/blog/categories/leetcode/'>leetcode</a>
+
+
+</div>
+    </div>
+		<h3>Algorithm:</h3>
+
+<p>For each positive element e in the array A, swap the element to index e &ndash; 1.
+Then scan the array to find out the first missing positive.</p>
+
+<figure class='code'><figcaption><span>First Missing Positive</span><a href='http://oj.leetcode.com/problems/first-missing-positive/'>Leetcode Link</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="cm">/**</span>
+</span><span class='line'><span class="cm"> * Given an unsorted integer array,</span>
+</span><span class='line'><span class="cm"> * find the first missing positive integer.</span>
+</span><span class='line'><span class="cm"> *</span>
+</span><span class='line'><span class="cm"> * For example,</span>
+</span><span class='line'><span class="cm"> * Given [1,2,0] return 3,</span>
+</span><span class='line'><span class="cm"> * and [3,4,-1,1] return 2.</span>
+</span><span class='line'><span class="cm"> * Your algorithm should run in O(n) time and uses constant space.</span>
+</span><span class='line'><span class="cm"> *</span>
+</span><span class='line'><span class="cm"> * Created by lightsaber on 3/30/14.</span>
+</span><span class='line'><span class="cm"> */</span>
+</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">FirstMissingPositive</span> <span class="o">{</span>
+</span><span class='line'>    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">firstMissingPositive</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">A</span><span class="o">)</span>
+</span><span class='line'>    <span class="o">{</span>
+</span><span class='line'>        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+</span><span class='line'>        <span class="k">while</span><span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">A</span><span class="o">.</span><span class="na">length</span><span class="o">)</span>
+</span><span class='line'>        <span class="o">{</span>
+</span><span class='line'>            <span class="k">if</span><span class="o">(</span><span class="n">A</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">A</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="n">A</span><span class="o">.</span><span class="na">length</span>
+</span><span class='line'>                    <span class="o">&amp;&amp;</span> <span class="n">A</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">!=</span> <span class="n">i</span> <span class="o">&amp;&amp;</span> <span class="n">A</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">!=</span> <span class="n">A</span><span class="o">[</span><span class="n">A</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">-</span> <span class="mi">1</span><span class="o">])</span>
+</span><span class='line'>                <span class="n">swap</span><span class="o">(</span><span class="n">A</span><span class="o">,</span> <span class="n">i</span><span class="o">,</span> <span class="n">A</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">-</span> <span class="mi">1</span><span class="o">);</span>
+</span><span class='line'>            <span class="k">else</span>
+</span><span class='line'>                <span class="n">i</span><span class="o">++;</span>
+</span><span class='line'>        <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="c1">// if there is a missing positive found, return it</span>
+</span><span class='line'>        <span class="k">for</span><span class="o">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">A</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span>
+</span><span class='line'>        <span class="o">{</span>
+</span><span class='line'>            <span class="k">if</span><span class="o">(</span><span class="n">A</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">!=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span>
+</span><span class='line'>            <span class="o">{</span>
+</span><span class='line'>                 <span class="k">return</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+</span><span class='line'>            <span class="o">}</span>
+</span><span class='line'>        <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="c1">// there is no missing positive so far, so next one will be</span>
+</span><span class='line'>        <span class="k">return</span> <span class="n">A</span><span class="o">.</span><span class="na">length</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">swap</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">A</span><span class="o">,</span> <span class="kt">int</span> <span class="n">i</span><span class="o">,</span> <span class="kt">int</span> <span class="n">j</span><span class="o">)</span>
+</span><span class='line'>    <span class="o">{</span>
+</span><span class='line'>        <span class="k">if</span><span class="o">(</span><span class="n">A</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">i</span> <span class="o">==</span> <span class="n">j</span> <span class="o">||</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">0</span>
+</span><span class='line'>                <span class="o">||</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="n">A</span><span class="o">.</span><span class="na">length</span> <span class="o">||</span> <span class="n">j</span> <span class="o">&gt;=</span> <span class="n">A</span><span class="o">.</span><span class="na">length</span><span class="o">)</span>
+</span><span class='line'>        <span class="o">{</span>
+</span><span class='line'>            <span class="k">return</span><span class="o">;</span>
+</span><span class='line'>        <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">A</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+</span><span class='line'>        <span class="n">A</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">A</span><span class="o">[</span><span class="n">j</span><span class="o">];</span>
+</span><span class='line'>        <span class="n">A</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="n">temp</span><span class="o">;</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+		
+		
+	</div>
+
+<div class="meta">
+	
+</div>
+</article>
 
 
     <article class="post">
@@ -1537,190 +1685,6 @@ Swap that pair. Take care of the end of the pair, the pair itself and the node b
 </span><span class='line'>            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
 </span><span class='line'>        <span class="o">}</span>
 </span><span class='line'>    <span class="o">}</span>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-		
-		
-	</div>
-
-<div class="meta">
-	
-</div>
-</article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2014/03/23/leetcode-remove-nth-node-from-end-of-list/">
-		
-			[Leetcode] Remove Nth Node From End of List</a>
-	</h2>
-    <div class="entry-content">
-    <div class="meta">
-      <div class="date">Published on: 
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-03-23T16:28:30-04:00" pubdate data-updated="true">Mar 23<span>rd</span>, 2014</time></div>
-      <div class="tags">Tags: 
-
-
-	<a class='category' href='/blog/categories/coding/'>coding</a>, <a class='category' href='/blog/categories/leetcode/'>leetcode</a>, <a class='category' href='/blog/categories/linked-list/'>linked list</a>
-
-
-</div>
-    </div>
-		<blockquote><p>Assumption:
-Given n will always be valid.</p></blockquote>
-
-<h3>Two things to pay attention to during implementation:</h3>
-
-<ol>
-<li>add a dummy head pointer to avoid special processing for the case when head is null</li>
-<li>keep track of the node (call it B) before the target node, check if B.next is null before removing the target node</li>
-</ol>
-
-
-<p>Also notice that the index start from 1 from the end of the list.</p>
-
-<figure class='code'><figcaption><span>Remove Nth Node From End of List</span><a href='http://oj.leetcode.com/problems/remove-nth-node-from-end-of-list/'>Leetcode Link</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-<span class='line-number'>52</span>
-<span class='line-number'>53</span>
-<span class='line-number'>54</span>
-<span class='line-number'>55</span>
-<span class='line-number'>56</span>
-<span class='line-number'>57</span>
-<span class='line-number'>58</span>
-<span class='line-number'>59</span>
-<span class='line-number'>60</span>
-<span class='line-number'>61</span>
-<span class='line-number'>62</span>
-<span class='line-number'>63</span>
-<span class='line-number'>64</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="cm">/**</span>
-</span><span class='line'><span class="cm"> * Given a linked list, remove the nth node from the end of list and return its head.</span>
-</span><span class='line'><span class="cm"> * For example,</span>
-</span><span class='line'><span class="cm"> *  Given linked list: 1-&gt;2-&gt;3-&gt;4-&gt;5, and n = 2.</span>
-</span><span class='line'><span class="cm"> *  After removing the second node from the end, the linked list becomes 1-&gt;2-&gt;3-&gt;5.</span>
-</span><span class='line'><span class="cm"> *</span>
-</span><span class='line'><span class="cm"> * Solution:</span>
-</span><span class='line'><span class="cm"> *  Start with a A pointer from the head, once A is pointing to Nth node</span>
-</span><span class='line'><span class="cm"> *  introduce pointer start from head, move A and B together until A gets to the end</span>
-</span><span class='line'><span class="cm"> *  And now remove the node after B.</span>
-</span><span class='line'><span class="cm"> *</span>
-</span><span class='line'><span class="cm"> */</span>
-</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">RemoveNthNodeFromEndOfList</span> <span class="o">{</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="c1">// Definition for singly-linked list.</span>
-</span><span class='line'>    <span class="kd">public</span> <span class="kd">class</span> <span class="nc">ListNode</span> <span class="o">{</span>
-</span><span class='line'>        <span class="kt">int</span> <span class="n">val</span><span class="o">;</span>
-</span><span class='line'>        <span class="n">ListNode</span> <span class="n">next</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="n">ListNode</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>            <span class="n">val</span> <span class="o">=</span> <span class="n">x</span><span class="o">;</span>
-</span><span class='line'>            <span class="n">next</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
-</span><span class='line'>        <span class="o">}</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="kd">public</span> <span class="n">ListNode</span> <span class="nf">removeNthFromEnd</span><span class="o">(</span><span class="n">ListNode</span> <span class="n">head</span><span class="o">,</span> <span class="kt">int</span> <span class="n">n</span><span class="o">)</span>
-</span><span class='line'>    <span class="o">{</span>
-</span><span class='line'>        <span class="c1">// introduce dummy head to ignore the null list input case</span>
-</span><span class='line'>        <span class="n">ListNode</span> <span class="n">dummyHead</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ListNode</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">MIN_VALUE</span><span class="o">);</span>
-</span><span class='line'>        <span class="n">dummyHead</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">head</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="c1">// A pointer</span>
-</span><span class='line'>        <span class="n">ListNode</span> <span class="n">aNode</span> <span class="o">=</span> <span class="n">dummyHead</span><span class="o">;</span>
-</span><span class='line'>        <span class="c1">// index of the A pointer</span>
-</span><span class='line'>        <span class="kt">int</span> <span class="n">aIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="c1">// advance A pointer to N node away from head</span>
-</span><span class='line'>        <span class="k">while</span><span class="o">(</span><span class="n">aIndex</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">&amp;&amp;</span> <span class="n">aNode</span><span class="o">.</span><span class="na">next</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span>
-</span><span class='line'>        <span class="o">{</span>
-</span><span class='line'>            <span class="n">aNode</span> <span class="o">=</span> <span class="n">aNode</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-</span><span class='line'>            <span class="n">aIndex</span><span class="o">++;</span>
-</span><span class='line'>        <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="c1">// B pointer</span>
-</span><span class='line'>        <span class="n">ListNode</span> <span class="n">bNode</span> <span class="o">=</span> <span class="n">dummyHead</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="c1">// advance A and B at the same time, until A gets the the end</span>
-</span><span class='line'>        <span class="k">while</span><span class="o">(</span><span class="n">aNode</span><span class="o">.</span><span class="na">next</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span>
-</span><span class='line'>        <span class="o">{</span>
-</span><span class='line'>            <span class="n">aNode</span> <span class="o">=</span> <span class="n">aNode</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-</span><span class='line'>            <span class="n">bNode</span> <span class="o">=</span> <span class="n">bNode</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-</span><span class='line'>        <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="c1">// remove the Node after B, which is Nth away from the end</span>
-</span><span class='line'>        <span class="c1">// only when bNode.next is not NULL</span>
-</span><span class='line'>        <span class="k">if</span><span class="o">(</span><span class="n">bNode</span><span class="o">.</span><span class="na">next</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span>
-</span><span class='line'>        <span class="o">{</span>
-</span><span class='line'>            <span class="n">bNode</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">bNode</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-</span><span class='line'>        <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="k">return</span> <span class="n">dummyHead</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'>
 </span><span class='line'><span class="o">}</span>
 </span></code></pre></td></tr></table></div></figure>
 

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: leetcode | lightsaber]]></title>
   <link href="http://xiaochenchen.github.io/blog/categories/leetcode/atom.xml" rel="self"/>
   <link href="http://xiaochenchen.github.io/"/>
-  <updated>2014-03-30T15:58:19-04:00</updated>
+  <updated>2014-03-30T22:22:11-04:00</updated>
   <id>http://xiaochenchen.github.io/</id>
   <author>
     <name><![CDATA[lightsaber]]></name>
@@ -12,6 +12,73 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[[leetcode] First Missing Positive]]></title>
+    <link href="http://xiaochenchen.github.io/blog/2014/03/30/leetcode-first-missing-positive/"/>
+    <updated>2014-03-30T22:17:24-04:00</updated>
+    <id>http://xiaochenchen.github.io/blog/2014/03/30/leetcode-first-missing-positive</id>
+    <content type="html"><![CDATA[<h3>Algorithm:</h3>
+
+<p>For each positive element e in the array A, swap the element to index e &ndash; 1.
+Then scan the array to find out the first missing positive.
+``` java First Missing Positive <a href="http://oj.leetcode.com/problems/first-missing-positive/">http://oj.leetcode.com/problems/first-missing-positive/</a> Leetcode Link
+/<em>*
+ * Given an unsorted integer array,
+ * find the first missing positive integer.
+ *
+ * For example,
+ * Given [1,2,0] return 3,
+ * and [3,4,-1,1] return 2.
+ * Your algorithm should run in O(n) time and uses constant space.
+ *
+ * Created by lightsaber on 3/30/14.
+ </em>/
+public class FirstMissingPositive {</p>
+
+<pre><code>public int firstMissingPositive(int[] A)
+{
+    int i = 0;
+    while(i &lt; A.length)
+    {
+        if(A[i] &gt; 0 &amp;&amp; A[i] - 1 &lt; A.length
+                &amp;&amp; A[i] - 1 != i &amp;&amp; A[i] != A[A[i] - 1])
+            swap(A, i, A[i] - 1);
+        else
+            i++;
+    }
+
+    // if there is a missing positive found, return it
+    for(i = 0; i &lt; A.length; ++i)
+    {
+        if(A[i] != i + 1)
+        {
+             return i + 1;
+        }
+    }
+
+    // there is no missing positive so far, so next one will be
+    return A.length + 1;
+}
+
+public void swap(int[] A, int i, int j)
+{
+    if(A == null || i == j || i &lt; 0 || j &lt; 0
+            || i &gt;= A.length || j &gt;= A.length)
+    {
+        return;
+    }
+
+    int temp = A[i];
+    A[i] = A[j];
+    A[j] = temp;
+}
+</code></pre>
+
+<p>}
+```</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[[leetcode] Combination Sum II]]></title>
@@ -297,45 +364,6 @@ public class LongestConsecutiveSequence
     }
 
     return longest;
-}
-</code></pre>
-
-<p>}
-```</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[[leetcode] Implement strStr()]]></title>
-    <link href="http://xiaochenchen.github.io/blog/2014/03/27/leetcode-implement-strstr/"/>
-    <updated>2014-03-27T22:47:45-04:00</updated>
-    <id>http://xiaochenchen.github.io/blog/2014/03/27/leetcode-implement-strstr</id>
-    <content type="html"><![CDATA[<h3>Algorithm</h3>
-
-<p>brute force, stop matching when the remaining string in source is shorter than target
-There is KMP algorithm, if you are interested. Not implementing here.
-``` java Implement strStr() <a href="http://oj.leetcode.com/problems/implement-strstr/">http://oj.leetcode.com/problems/implement-strstr/</a> Leetcode Link
-/<em>*
- *
- * Implement strStr().
- * Returns a pointer to the first occurrence of needle in haystack,
- * or null if needle is not part of haystack.
- *
- * Created by lightsaber on 3/27/14.
- </em>/
-public class StrStr
-{</p>
-
-<pre><code>public String strStr(String haystack, String needle) {
-    for(int i = 0; i &lt;= haystack.length() - needle.length(); ++i)
-    {
-        if(haystack.substring(i, i + needle.length()).equals(needle))
-        {
-            return haystack.substring(i);
-        }
-    }
-
-    return null;
 }
 </code></pre>
 
