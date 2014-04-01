@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: sudoku | lightsaber]]></title>
+  <link href="http://xiaochenchen.github.io/blog/categories/sudoku/atom.xml" rel="self"/>
+  <link href="http://xiaochenchen.github.io/"/>
+  <updated>2014-03-31T23:27:00-04:00</updated>
+  <id>http://xiaochenchen.github.io/</id>
+  <author>
+    <name><![CDATA[lightsaber]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[[leetcode] Valid Sudoku]]></title>
+    <link href="http://xiaochenchen.github.io/blog/2014/03/31/leetcode-valid-sudoku/"/>
+    <updated>2014-03-31T23:18:21-04:00</updated>
+    <id>http://xiaochenchen.github.io/blog/2014/03/31/leetcode-valid-sudoku</id>
+    <content type="html"><![CDATA[<h3>Algorithm:</h3>
+
+<p>Validate all rows, all columns and all 3X3 grids respectively.
+``` java Valid Sudoku <a href="http://oj.leetcode.com/problems/valid-sudoku/">http://oj.leetcode.com/problems/valid-sudoku/</a> Leetcode Link
+/<em>*
+ * Determine if a Sudoku is valid, according to: Sudoku Puzzles &ndash; The Rules.
+ *
+ * The Sudoku board could be partially filled, where empty cells are filled with the character &lsquo;.&rsquo;.
+ *
+ * Note:
+ * A valid Sudoku board (partially filled) is not necessarily solvable.
+ * Only the filled cells need to be validated.
+ *
+ * Created by lightsaber on 3/31/14.
+ </em>/
+public class ValidSudoku
+{</p>
+
+<pre><code>public boolean isValidSudoku(char[][] board)
+{
+    boolean[] visited = new boolean[9];
+
+    // check each row
+    for(int i = 0; i &lt; board.length; ++i)
+    {
+        Arrays.fill(visited, false);
+        for(int j = 0; j &lt; board[i].length; ++j)
+        {
+            if(board[i][j] != '.')
+            {
+                if(visited[board[i][j] - '1']) return false;
+                else visited[board[i][j] - '1'] = true;
+            }
+        }
+    }
+
+    // check each column
+    for(int j = 0; j &lt; board[0].length; ++j)
+    {
+        Arrays.fill(visited, false);
+        for(int i = 0; i &lt; board.length; ++i)
+        {
+            if(board[i][j] != '.')
+            {
+                if(visited[board[i][j] - '1']) return false;
+                else visited[board[i][j] - '1'] = true;
+            }
+        }
+    }
+
+    // check each 3 * 3 grid
+    for(int m = 0; m &lt; 3; ++m)
+    {
+        for(int n = 0; n &lt; 3; ++n)
+        {
+            Arrays.fill(visited, false);
+            for(int i = m * 3; i &lt; m * 3 + 3; ++i)
+            {
+                for(int j = n * 3; j &lt; n * 3 + 3; ++j)
+                {
+                    if(board[i][j] != '.')
+                    {
+                        if(visited[board[i][j] - '1']) return false;
+                        else visited[board[i][j] - '1'] = true;
+                    }
+                }
+            }
+        }
+    }
+
+    return true;
+}
+</code></pre>
+
+<p>}
+```</p>
+]]></content>
+  </entry>
+  
+</feed>
