@@ -4,7 +4,7 @@
   <title><![CDATA[Category: coding | lightsaber]]></title>
   <link href="http://xiaochenchen.github.io/blog/categories/coding/atom.xml" rel="self"/>
   <link href="http://xiaochenchen.github.io/"/>
-  <updated>2014-03-31T23:27:00-04:00</updated>
+  <updated>2014-03-31T23:45:25-04:00</updated>
   <id>http://xiaochenchen.github.io/</id>
   <author>
     <name><![CDATA[lightsaber]]></name>
@@ -12,6 +12,125 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[[leetcode] Sudoku Solver]]></title>
+    <link href="http://xiaochenchen.github.io/blog/2014/03/31/leetcode-sudoku-solver/"/>
+    <updated>2014-03-31T23:39:16-04:00</updated>
+    <id>http://xiaochenchen.github.io/blog/2014/03/31/leetcode-sudoku-solver</id>
+    <content type="html"><![CDATA[<h3>Algorithm:</h3>
+
+<p>Backtracking if an invalid decision is made for a cell. Recursive.
+There is also an utility function <code>findUnsolvedPosition</code>
+which returns <code>int[]</code> the coordinates of the first unresolved cell.
+``` java Sudoku Solver <a href="http://oj.leetcode.com/problems/sudoku-solver/">http://oj.leetcode.com/problems/sudoku-solver/</a> Leetcode Link
+/<em>*
+ * Write a program to solve a Sudoku puzzle by filling the empty cells.
+ * Empty cells are indicated by the character &lsquo;.&rsquo;.
+ * You may assume that there will be only one unique solution.
+ *
+ * Created with IntelliJ IDEA.
+ * User: Xiaochen Chen
+ * Date: 2/13/14
+ * Time: 7:08 PM
+ </em>/
+public class SudokuSolver
+{</p>
+
+<pre><code>private final int BOARD_LEN = 9;
+
+public void solveSudoku(char[][] board) {
+    solve(board);
+}
+
+private boolean solve(char[][] board)
+{
+    int[] unsolvedPosition = findUnsolvedPosition(board);
+
+    // if there is no unsolved cell, return true
+    if(Arrays.equals(new int[] {-1, -1}, unsolvedPosition)) return true;
+
+    int r = unsolvedPosition[0], c = unsolvedPosition[1];
+
+    for(int n = 1; n &lt;= BOARD_LEN; n++)
+    {
+        if(isSafe(board, r, c, Character.forDigit(n, 10)))
+        {
+            board[r][c] = Character.forDigit(n, 10);
+            if(solve(board))
+            {
+                return true;
+            }
+
+            // failure, unset, try another number
+            // always forget about this step, ATTENTION!!!!!
+            board[r][c] = '.';
+        }
+    }
+
+    return false;
+}
+
+private int[] findUnsolvedPosition(char[][] board)
+{
+    int[] unsolvedPosition = new int[] {-1, -1};
+    for(int i = 0; i &lt; BOARD_LEN; i++)
+    {
+        for(int j = 0; j &lt; BOARD_LEN; j++)
+        {
+            if(board[i][j] == '.')
+            {
+                unsolvedPosition[0] = i;
+                unsolvedPosition[1] = j;
+                return unsolvedPosition;
+            }
+        }
+    }
+    return unsolvedPosition;
+}
+
+private boolean isSafe(char[][] board, int r, int c, char num)
+{
+    // check row
+    for(int j = 0; j &lt; BOARD_LEN; j++)
+    {
+        if(board[r][j] == num)
+        {
+            return false;
+        }
+    }
+
+    // check column
+    for(int i = 0; i &lt; BOARD_LEN; i++)
+    {
+        if(board[i][c] == num)
+        {
+            return false;
+        }
+    }
+
+    // check 3X3 box
+    int box_row = r / 3;
+    int box_col = c / 3;
+    for(int i = 3 * box_row; i &lt; 3 * (box_row + 1); i++)
+    {
+        for(int j = 3 * box_col; j &lt; 3 * (box_col + 1); j++)
+        {
+            if(board[i][j] == num)
+            {
+                return false;
+            }
+        }
+    }
+
+    return true;
+}
+</code></pre>
+
+<p>}
+```</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[[leetcode] Valid Sudoku]]></title>
@@ -315,78 +434,6 @@ public void generate(int[] num, ArrayList&lt;ArrayList&lt;Integer&gt;&gt; result
 
         result.add(num[i]);
         generate(num, results, result, i + 1, currSum + num[i], target);
-        result.remove(result.size() - 1);
-    }
-}
-</code></pre>
-
-<p>}
-```</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[[leetcode] Combination Sum]]></title>
-    <link href="http://xiaochenchen.github.io/blog/2014/03/30/leetcode-combination-sum/"/>
-    <updated>2014-03-30T14:51:10-04:00</updated>
-    <id>http://xiaochenchen.github.io/blog/2014/03/30/leetcode-combination-sum</id>
-    <content type="html"><![CDATA[<h3>Algorithm:</h3>
-
-<p>Recursive solution.
-``` java Combination Sum <a href="http://oj.leetcode.com/problems/combination-sum">http://oj.leetcode.com/problems/combination-sum</a> Leetcode Link
-/<em>*
- * Given a set of candidate numbers &copy; and a target number (T),
- * find all unique combinations in C where the candidate numbers sums to T.
- * The same repeated number may be chosen from C unlimited number of times.
- *
- * Note:
- * All numbers (including target) will be positive integers.
- * Elements in a combination (a1, a2, &hellip; , ak)
- * must be in non-descending order. (ie, a1 &lt;= a2 &lt;= &hellip; &lt;= ak).
- * The solution set must not contain duplicate combinations.
- *
- * For example, given candidate set 2,3,6,7 and target 7,
- *
- * A solution set is:
- * [7]
- * [2, 2, 3]
- *
- * Created by lightsaber on 3/29/14.
- </em>/
-public class CombinationSum
-{</p>
-
-<pre><code>public ArrayList&lt;ArrayList&lt;Integer&gt;&gt; combinationSum(int[] candidates, int target)
-{
-    ArrayList&lt;ArrayList&lt;Integer&gt;&gt; results = new ArrayList&lt;ArrayList&lt;Integer&gt;&gt;();
-    ArrayList&lt;Integer&gt; result = new ArrayList&lt;Integer&gt;();
-
-    Arrays.sort(candidates);
-
-    generate(candidates, results, result, 0, 0, target);
-
-    return results;
-}
-
-public void generate(int[] candidates, ArrayList&lt;ArrayList&lt;Integer&gt;&gt; results,
-                     ArrayList&lt;Integer&gt; result, int startIndex, int currSum, int target)
-{
-    // found a valid combination
-    if(currSum == target)
-    {
-        results.add(new ArrayList&lt;Integer&gt;(result));
-        return;
-    }
-    // currSum is greater than target, stop right here
-    else if(currSum &gt; target)
-    {
-        return;
-    }
-
-    for(int i = startIndex; i &lt; candidates.length; ++i)
-    {
-        result.add(candidates[i]);
-        generate(candidates, results, result, i, currSum + candidates[i], target);
         result.remove(result.size() - 1);
     }
 }
