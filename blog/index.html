@@ -6,8 +6,7 @@
 	<title>lightsaber</title>
     <meta name="author" content="lightsaber">
     
-	<meta name="description" content="Published on: Mar 31st, 2014 Tags: coding, leetcode, sudoku Algorithm: Backtracking if an invalid decision is made for a cell. Recursive.
-There is &hellip;">
+	<meta name="description" content="Published on: Mar 31st, 2014 Tags: coding, leetcode, sudoku Algorithm: Backtracking if an invalid decision is made for a cell. Recursive. There is &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -124,9 +123,7 @@ There is &hellip;">
     </div>
 		<h3>Algorithm:</h3>
 
-<p>Backtracking if an invalid decision is made for a cell. Recursive.
-There is also an utility function <code>findUnsolvedPosition</code>
-which returns <code>int[]</code> the coordinates of the first unresolved cell.</p>
+<p>Backtracking if an invalid decision is made for a cell. Recursive. There is also an utility function <code>findUnsolvedPosition</code> which returns an <code>int[]</code>: the coordinates of the first unresolved cell.</p>
 
 <figure class='code'><figcaption><span>Sudoku Solver</span><a href='http://oj.leetcode.com/problems/sudoku-solver/'>Leetcode Link</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -228,7 +225,6 @@ which returns <code>int[]</code> the coordinates of the first unresolved cell.</
 <span class='line-number'>98</span>
 <span class='line-number'>99</span>
 <span class='line-number'>100</span>
-<span class='line-number'>101</span>
 </pre></td><td class='code'><pre><code class='java'><span class='line'><span class="cm">/**</span>
 </span><span class='line'><span class="cm"> * Write a program to solve a Sudoku puzzle by filling the empty cells.</span>
 </span><span class='line'><span class="cm"> * Empty cells are indicated by the character &#39;.&#39;.</span>
@@ -267,7 +263,6 @@ which returns <code>int[]</code> the coordinates of the first unresolved cell.</
 </span><span class='line'>                <span class="o">}</span>
 </span><span class='line'>
 </span><span class='line'>                <span class="c1">// failure, unset, try another number</span>
-</span><span class='line'>                <span class="c1">// always forget about this step, ATTENTION!!!!!</span>
 </span><span class='line'>                <span class="n">board</span><span class="o">[</span><span class="n">r</span><span class="o">][</span><span class="n">c</span><span class="o">]</span> <span class="o">=</span> <span class="sc">&#39;.&#39;</span><span class="o">;</span>
 </span><span class='line'>            <span class="o">}</span>
 </span><span class='line'>        <span class="o">}</span>

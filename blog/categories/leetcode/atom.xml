@@ -4,7 +4,7 @@
   <title><![CDATA[Category: leetcode | lightsaber]]></title>
   <link href="http://xiaochenchen.github.io/blog/categories/leetcode/atom.xml" rel="self"/>
   <link href="http://xiaochenchen.github.io/"/>
-  <updated>2014-03-31T23:45:25-04:00</updated>
+  <updated>2014-03-31T23:46:52-04:00</updated>
   <id>http://xiaochenchen.github.io/</id>
   <author>
     <name><![CDATA[lightsaber]]></name>
@@ -20,9 +20,7 @@
     <id>http://xiaochenchen.github.io/blog/2014/03/31/leetcode-sudoku-solver</id>
     <content type="html"><![CDATA[<h3>Algorithm:</h3>
 
-<p>Backtracking if an invalid decision is made for a cell. Recursive.
-There is also an utility function <code>findUnsolvedPosition</code>
-which returns <code>int[]</code> the coordinates of the first unresolved cell.
+<p>Backtracking if an invalid decision is made for a cell. Recursive. There is also an utility function <code>findUnsolvedPosition</code> which returns an <code>int[]</code>: the coordinates of the first unresolved cell.
 ``` java Sudoku Solver <a href="http://oj.leetcode.com/problems/sudoku-solver/">http://oj.leetcode.com/problems/sudoku-solver/</a> Leetcode Link
 /<em>*
  * Write a program to solve a Sudoku puzzle by filling the empty cells.
@@ -63,7 +61,6 @@ private boolean solve(char[][] board)
             }
 
             // failure, unset, try another number
-            // always forget about this step, ATTENTION!!!!!
             board[r][c] = '.';
         }
     }
