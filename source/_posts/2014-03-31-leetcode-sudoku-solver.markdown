@@ -17,7 +17,7 @@ Backtracking if an invalid decision is made for a cell. Recursive. There is also
  * You may assume that there will be only one unique solution.
  *
  * Created with IntelliJ IDEA.
- * User: Xiaochen Chen
+ * User: lightsaber
  * Date: 2/13/14
  * Time: 7:08 PM
  */
