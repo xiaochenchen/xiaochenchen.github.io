@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: blog | lightsaber]]></title>
+  <link href="http://xiaochenchen.github.io/blog/categories/blog/atom.xml" rel="self"/>
+  <link href="http://xiaochenchen.github.io/"/>
+  <updated>2014-04-05T22:02:18-04:00</updated>
+  <id>http://xiaochenchen.github.io/</id>
+  <author>
+    <name><![CDATA[lightsaber]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[[Octopress] Contributing to an existing Octopress blog]]></title>
+    <link href="http://xiaochenchen.github.io/blog/2014/04/05/octopress-contributing-to-an-existing-octopress-blog/"/>
+    <updated>2014-04-05T21:01:43-04:00</updated>
+    <id>http://xiaochenchen.github.io/blog/2014/04/05/octopress-contributing-to-an-existing-octopress-blog</id>
+    <content type="html"><![CDATA[<p>How to contribute to an existing Octopress blog? Or how to update your own Octopress blog from a new computer?
+<code>bash
+git clone git@github.com:username/username.github.com.git
+cd username.github.com
+git checkout source
+mkdir _deploy
+cd _deploy
+git init
+git remote add origin git@github.com:username/username.github.com.git
+git pull origin master
+cd ..
+</code></p>
+]]></content>
+  </entry>
+  
+</feed>

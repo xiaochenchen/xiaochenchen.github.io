@@ -6,7 +6,7 @@
 	<title>lightsaber</title>
     <meta name="author" content="lightsaber">
     
-	<meta name="description" content="Published on: Mar 31st, 2014 Tags: coding, leetcode, sudoku Algorithm: Backtracking if an invalid decision is made for a cell. Recursive. There is &hellip;">
+	<meta name="description" content="Published on: Apr 5th, 2014 Tags: blog, octopress How to contribute to an existing Octopress blog? Or how to update your own Octopress blog from a &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -89,6 +89,69 @@
 <!-- begin toload --> 
     <div id="content" class="inner">
         
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2014/04/05/octopress-contributing-to-an-existing-octopress-blog/">
+		
+			[Octopress] Contributing to an Existing Octopress Blog</a>
+	</h2>
+    <div class="entry-content">
+    <div class="meta">
+      <div class="date">Published on: 
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-04-05T21:01:43-04:00" pubdate data-updated="true">Apr 5<span>th</span>, 2014</time></div>
+      <div class="tags">Tags: 
+
+
+	<a class='category' href='/blog/categories/blog/'>blog</a>, <a class='category' href='/blog/categories/octopress/'>octopress</a>
+
+
+</div>
+    </div>
+		<p>How to contribute to an existing Octopress blog? Or how to update your own Octopress blog from a new computer?</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>git clone git@github.com:username/username.github.com.git
+</span><span class='line'><span class="nb">cd </span>username.github.com
+</span><span class='line'>git checkout <span class="nb">source</span>
+</span><span class='line'>mkdir _deploy
+</span><span class='line'><span class="nb">cd </span>_deploy
+</span><span class='line'>git init
+</span><span class='line'>git remote add origin git@github.com:username/username.github.com.git
+</span><span class='line'>git pull origin master
+</span><span class='line'><span class="nb">cd</span> ..
+</span></code></pre></td></tr></table></div></figure>
+
+
+		
+		
+	</div>
+
+<div class="meta">
+	
+</div>
+</article>
 
 
     <article class="post">
@@ -1523,215 +1586,6 @@ There is KMP algorithm, if you are interested. Not implementing here.</p>
 </span><span class='line'>        <span class="o">}</span>
 </span><span class='line'>
 </span><span class='line'>        <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-		
-		
-	</div>
-
-<div class="meta">
-	
-</div>
-</article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2014/03/27/leetcode-reverse-nodes-in-k-group/">
-		
-			[Leetcode] Reverse Nodes in K Group</a>
-	</h2>
-    <div class="entry-content">
-    <div class="meta">
-      <div class="date">Published on: 
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-03-27T22:03:43-04:00" pubdate data-updated="true">Mar 27<span>th</span>, 2014</time></div>
-      <div class="tags">Tags: 
-
-
-	<a class='category' href='/blog/categories/coding/'>coding</a>, <a class='category' href='/blog/categories/leetcode/'>leetcode</a>, <a class='category' href='/blog/categories/linked-list/'>linked list</a>
-
-
-</div>
-    </div>
-		<h3>Algorithm</h3>
-
-<p>This question is similar to <a href="http://xiaochenchen.github.io/blog/2014/03/27/leetcode-swap-nodes-in-pairs/">Swap Nodes in Pairs</a> in that we need to keep track of the Node before the K group, we call it <code>pre</code> reference. When we are done with the K group, we need to change pre to point to the Begin of this K group.</p>
-
-<p>In order to reverse K group, we keep track of the beginning <code>kBegin</code> and ending <code>kEnd</code> of currently reversed nodes. When processing for next node, we move <code>kEnd</code> to point to its next, insert itself before <code>kBegin</code>, and update <code>kBegin</code>. Until we reserverd K nodes.</p>
-
-<figure class='code'><figcaption><span>Reverse Nodes in K Group</span><a href='http://oj.leetcode.com/problems/reverse-nodes-in-k-group/'>Leetcode Link</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-<span class='line-number'>52</span>
-<span class='line-number'>53</span>
-<span class='line-number'>54</span>
-<span class='line-number'>55</span>
-<span class='line-number'>56</span>
-<span class='line-number'>57</span>
-<span class='line-number'>58</span>
-<span class='line-number'>59</span>
-<span class='line-number'>60</span>
-<span class='line-number'>61</span>
-<span class='line-number'>62</span>
-<span class='line-number'>63</span>
-<span class='line-number'>64</span>
-<span class='line-number'>65</span>
-<span class='line-number'>66</span>
-<span class='line-number'>67</span>
-<span class='line-number'>68</span>
-<span class='line-number'>69</span>
-<span class='line-number'>70</span>
-<span class='line-number'>71</span>
-<span class='line-number'>72</span>
-<span class='line-number'>73</span>
-<span class='line-number'>74</span>
-<span class='line-number'>75</span>
-<span class='line-number'>76</span>
-<span class='line-number'>77</span>
-<span class='line-number'>78</span>
-<span class='line-number'>79</span>
-<span class='line-number'>80</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="cm">/**</span>
-</span><span class='line'><span class="cm"> * Given a linked list, reverse the nodes of the</span>
-</span><span class='line'><span class="cm"> * linked list k at a time and return its modified list.</span>
-</span><span class='line'><span class="cm"> * If the number of nodes is not a multiple of k</span>
-</span><span class='line'><span class="cm"> * then left-out nodes in the end should remain as it is.</span>
-</span><span class='line'><span class="cm"> * You may not alter the values in the nodes, only nodes itself may be changed.</span>
-</span><span class='line'><span class="cm"> *</span>
-</span><span class='line'><span class="cm"> * Only constant memory is allowed.</span>
-</span><span class='line'><span class="cm"> *</span>
-</span><span class='line'><span class="cm"> * For example,</span>
-</span><span class='line'><span class="cm"> * Given this linked list: 1-&gt;2-&gt;3-&gt;4-&gt;5</span>
-</span><span class='line'><span class="cm"> * For k = 2, you should return: 2-&gt;1-&gt;4-&gt;3-&gt;5</span>
-</span><span class='line'><span class="cm"> * For k = 3, you should return: 3-&gt;2-&gt;1-&gt;4-&gt;5</span>
-</span><span class='line'><span class="cm"> *</span>
-</span><span class='line'><span class="cm"> * Created by lightsaber on 3/27/14.</span>
-</span><span class='line'><span class="cm"> */</span>
-</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ReverseNodesInKGroup</span>
-</span><span class='line'><span class="o">{</span>
-</span><span class='line'>    <span class="c1">// Definition for singly-linked list.</span>
-</span><span class='line'>    <span class="kd">public</span> <span class="kd">class</span> <span class="nc">ListNode</span> <span class="o">{</span>
-</span><span class='line'>        <span class="kt">int</span> <span class="n">val</span><span class="o">;</span>
-</span><span class='line'>        <span class="n">ListNode</span> <span class="n">next</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="n">ListNode</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>            <span class="n">val</span> <span class="o">=</span> <span class="n">x</span><span class="o">;</span>
-</span><span class='line'>            <span class="n">next</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
-</span><span class='line'>        <span class="o">}</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="kd">public</span> <span class="n">ListNode</span> <span class="nf">reverseKGroup</span><span class="o">(</span><span class="n">ListNode</span> <span class="n">head</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="n">ListNode</span> <span class="n">dummyHead</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ListNode</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">MIN_VALUE</span><span class="o">);</span>
-</span><span class='line'>        <span class="n">dummyHead</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">head</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="n">ListNode</span> <span class="n">pre</span> <span class="o">=</span> <span class="n">dummyHead</span><span class="o">;</span>
-</span><span class='line'>        <span class="n">ListNode</span> <span class="n">kBegin</span> <span class="o">=</span> <span class="n">head</span><span class="o">;</span>
-</span><span class='line'>        <span class="n">ListNode</span> <span class="n">kEnd</span> <span class="o">=</span> <span class="n">head</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="k">while</span><span class="o">(</span><span class="n">hasAtLeastKNodes</span><span class="o">(</span><span class="n">kBegin</span><span class="o">,</span> <span class="n">k</span><span class="o">))</span>
-</span><span class='line'>        <span class="o">{</span>
-</span><span class='line'>            <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'>            <span class="k">while</span><span class="o">(</span><span class="n">count</span> <span class="o">&lt;</span> <span class="n">k</span><span class="o">)</span>
-</span><span class='line'>            <span class="o">{</span>
-</span><span class='line'>                <span class="n">ListNode</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">kEnd</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-</span><span class='line'>                <span class="n">kEnd</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">kBegin</span><span class="o">;</span>
-</span><span class='line'>                <span class="n">kBegin</span> <span class="o">=</span> <span class="n">kEnd</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-</span><span class='line'>                <span class="n">kEnd</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">temp</span><span class="o">;</span>
-</span><span class='line'>                <span class="n">count</span><span class="o">++;</span>
-</span><span class='line'>            <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>            <span class="c1">// set the references for next k nodes</span>
-</span><span class='line'>            <span class="n">pre</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">kBegin</span><span class="o">;</span>
-</span><span class='line'>            <span class="n">pre</span> <span class="o">=</span> <span class="n">kEnd</span><span class="o">;</span>
-</span><span class='line'>            <span class="n">kBegin</span> <span class="o">=</span> <span class="n">pre</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-</span><span class='line'>            <span class="n">kEnd</span> <span class="o">=</span> <span class="n">pre</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-</span><span class='line'>        <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="k">return</span> <span class="n">dummyHead</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="c1">// utility function to check if there are at least k nodes from head</span>
-</span><span class='line'>    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">hasAtLeastKNodes</span><span class="o">(</span><span class="n">ListNode</span> <span class="n">head</span><span class="o">,</span> <span class="kt">int</span> <span class="n">k</span><span class="o">)</span>
-</span><span class='line'>    <span class="o">{</span>
-</span><span class='line'>        <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="n">ListNode</span> <span class="n">curr</span> <span class="o">=</span> <span class="n">head</span><span class="o">;</span>
-</span><span class='line'>        <span class="k">while</span><span class="o">(</span><span class="n">curr</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span>
-</span><span class='line'>        <span class="o">{</span>
-</span><span class='line'>            <span class="n">count</span><span class="o">++;</span>
-</span><span class='line'>            <span class="k">if</span><span class="o">(</span><span class="n">count</span> <span class="o">==</span> <span class="n">k</span><span class="o">)</span>
-</span><span class='line'>            <span class="o">{</span>
-</span><span class='line'>                <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
-</span><span class='line'>            <span class="o">}</span>
-</span><span class='line'>            <span class="n">curr</span> <span class="o">=</span> <span class="n">curr</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
-</span><span class='line'>        <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
 </span><span class='line'>    <span class="o">}</span>
 </span><span class='line'><span class="o">}</span>
 </span></code></pre></td></tr></table></div></figure>
