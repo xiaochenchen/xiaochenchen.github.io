@@ -4,7 +4,7 @@
   <title><![CDATA[lightsaber]]></title>
   <link href="http://xiaochenchen.github.io/atom.xml" rel="self"/>
   <link href="http://xiaochenchen.github.io/"/>
-  <updated>2014-05-03T12:39:40-04:00</updated>
+  <updated>2014-05-03T12:43:47-04:00</updated>
   <id>http://xiaochenchen.github.io/</id>
   <author>
     <name><![CDATA[lightsaber]]></name>
@@ -32,6 +32,10 @@
 </span><span class='line'>View<span class="p">=</span>%var{EDITOR:<span class="k">vi</span>} %<span class="k">f</span>
 </span></code></pre></td></tr></table></div></figure>
 
+
+<h2>Where is the missing &lsquo;Insert&rsquo; key for MC on a Macbook?</h2>
+
+<p>In Minnight Commander, <code>Insert</code> key tags individual entry for group operations. However, Macbook doesn&rsquo;t have a <code>Insert</code> key. Yayiks! No problems! Use <code>&lt;Ctrl&gt; + t</code> instead!</p>
 ]]></content>
   </entry>
   
