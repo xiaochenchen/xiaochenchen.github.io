@@ -4,7 +4,7 @@
   <title><![CDATA[lightsaber]]></title>
   <link href="http://xiaochenchen.github.io/atom.xml" rel="self"/>
   <link href="http://xiaochenchen.github.io/"/>
-  <updated>2014-05-03T12:34:37-04:00</updated>
+  <updated>2014-05-03T12:35:37-04:00</updated>
   <id>http://xiaochenchen.github.io/</id>
   <author>
     <name><![CDATA[lightsaber]]></name>
@@ -18,11 +18,11 @@
     <link href="http://xiaochenchen.github.io/blog/2014/05/03/notes-for-midnignt-commander/"/>
     <updated>2014-05-03T12:25:19-04:00</updated>
     <id>http://xiaochenchen.github.io/blog/2014/05/03/notes-for-midnignt-commander</id>
-    <content type="html"><![CDATA[<h4>How to use external editor to edit and view files?</h4>
+    <content type="html"><![CDATA[<h3>How to use external editor to edit and view files?</h3>
 
 <p>You can change this in <code>Options</code> menu, by pressing <code>F9</code>. Select <code>Configuration</code> menu item, which will display <code>Configure Options</code> dialog. You just need to deselect the check box next to <code>Use Internal Edit</code> and <code>Use Internal View</code>.</p>
 
-<h4>How to change the <code>Enter</code> key behavior to view file instead of executing it?</h4>
+<h3>How to change the <code>Enter</code> key behavior to view file instead of executing it?</h3>
 
 <p>Press F9 &ndash;> Select <code>Command</code> menu &ndash;> Select <code>Edit extension file</code> menu item. This will display the extension file. Go to the bottom of the file and change the value of open and view paramter values as shown below.</p>
 
