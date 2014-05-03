@@ -3,10 +3,11 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Category: blog - lightsaber</title>
+	<title>Notes for Midnignt Commander - lightsaber</title>
     <meta name="author" content="lightsaber">
     
-	<meta name="description" content="Category: blog">
+	<meta name="description" content="How to use external editor to edit and view files?
+You can change this in Options menu, by pressing F9. Select Configuration menu item, which will &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -103,49 +104,48 @@
 <div id="toload">
 <!-- begin toload --> 
     <div id="content" class="inner">
-        
+        <article class="post">
+	<h2 class="title">Notes for Midnignt Commander</h2>
+	<div class="entry-content"><p><strong>How to use external editor to edit and view files?</strong>
+You can change this in <code>Options</code> menu, by pressing <code>F9</code>. Select <code>Configuration</code> menu item, which will display <code>Configure Options</code> dialog. You just need to deselect the check box next to <code>Use Internal Edit</code> and <code>Use Internal View</code>.</p>
+
+<p><strong>How to change the <code>Enter</code> key behavior to view file instead of executing it?</strong>
+Press F9 &ndash;> Select <code>Command</code> menu &ndash;> Select <code>Edit extension file</code> menu item. This will display the extension file. Go to the bottom of the file and change the value of open and view paramter values as shown below.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='vim'><span class='line'>Open<span class="p">=</span>%var{EDITOR:<span class="k">vi</span>} %<span class="k">f</span>
+</span><span class='line'>View<span class="p">=</span>%var{EDITOR:<span class="k">vi</span>} %<span class="k">f</span>
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+
+<div class="meta">
 	
-
-
-	
-	
-	<section class="archives"><h1 class="year">2014</h1>
-
-<article>
-  <h2 class="title"><a href="/blog/2014/05/03/notes-for-midnignt-commander/">Notes for Midnignt Commander</a></h2>
-	<div class="meta">
-		<span class="date">May  3</span>
-		<span class="tags">
-
-
-	<a class='category' href='/blog/categories/blog/'>blog</a>, <a class='category' href='/blog/categories/midnight-commander/'>midnight commander</a>, <a class='category' href='/blog/categories/notes/'>notes</a>
-
-
-</span>
-	    
-	</div>
+</div>
 </article>
 
-
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
 	
-
-
-<article>
-  <h2 class="title"><a href="/blog/2014/05/03/octopress-how-to-setup-your-octopress-blog-on-a-new-computer/">[Octopress] How to Setup Your Octopress Blog on a New Computer</a></h2>
-	<div class="meta">
-		<span class="date">May  3</span>
-		<span class="tags">
-
-
-	<a class='category' href='/blog/categories/blog/'>blog</a>, <a class='category' href='/blog/categories/octopress/'>octopress</a>
-
-
-</span>
-	    
+	<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+	
+	
+	<a class="addthis_button_tweet"></a>
+	
+	
+	<a class="addthis_counter addthis_pill_style"></a>
 	</div>
-</article>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
 
 
+
+<section id="comment">
+    <h2 class="title">Comments</h2>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
 
     </div>
     <footer id="footer">
@@ -172,7 +172,10 @@
       var disqus_shortname = 'xiaochensblog';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://xiaochenchen.github.io/blog/2014/05/03/notes-for-midnignt-commander/';
+        var disqus_url = 'http://xiaochenchen.github.io/blog/2014/05/03/notes-for-midnignt-commander/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

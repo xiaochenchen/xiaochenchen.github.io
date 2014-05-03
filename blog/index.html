@@ -6,7 +6,8 @@
 	<title>lightsaber</title>
     <meta name="author" content="lightsaber">
     
-	<meta name="description" content="Published on: May 3rd, 2014 Tags: blog, octopress What is the problem? You are most likely to encouter some error when you try to clone your &hellip;">
+	<meta name="description" content="Published on: May 3rd, 2014 Tags: blog, midnight commander, notes How to use external editor to edit and view files?
+You can change this in Options &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -104,6 +105,59 @@
 <!-- begin toload --> 
     <div id="content" class="inner">
         
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2014/05/03/notes-for-midnignt-commander/">
+		
+			Notes for Midnignt Commander</a>
+	</h2>
+    <div class="entry-content">
+    <div class="meta">
+      <div class="date">Published on: 
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-05-03T12:25:19-04:00" pubdate data-updated="true">May 3<span>rd</span>, 2014</time></div>
+      <div class="tags">Tags: 
+
+
+	<a class='category' href='/blog/categories/blog/'>blog</a>, <a class='category' href='/blog/categories/midnight-commander/'>midnight commander</a>, <a class='category' href='/blog/categories/notes/'>notes</a>
+
+
+</div>
+    </div>
+		<p><strong>How to use external editor to edit and view files?</strong>
+You can change this in <code>Options</code> menu, by pressing <code>F9</code>. Select <code>Configuration</code> menu item, which will display <code>Configure Options</code> dialog. You just need to deselect the check box next to <code>Use Internal Edit</code> and <code>Use Internal View</code>.</p>
+
+<p><strong>How to change the <code>Enter</code> key behavior to view file instead of executing it?</strong>
+Press F9 &ndash;> Select <code>Command</code> menu &ndash;> Select <code>Edit extension file</code> menu item. This will display the extension file. Go to the bottom of the file and change the value of open and view paramter values as shown below.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='vim'><span class='line'>Open<span class="p">=</span>%var{EDITOR:<span class="k">vi</span>} %<span class="k">f</span>
+</span><span class='line'>View<span class="p">=</span>%var{EDITOR:<span class="k">vi</span>} %<span class="k">f</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+		
+		
+	</div>
+
+<div class="meta">
+	
+</div>
+</article>
 
 
     <article class="post">
@@ -1525,98 +1579,6 @@ Start scaning the array, for each element i in the array, if i is in H, check wh
 </span></code></pre></td></tr></table></div></figure>
 
 
-
-
-		
-		
-	</div>
-
-<div class="meta">
-	
-</div>
-</article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2014/03/27/leetcode-implement-strstr/">
-		
-			[Leetcode] Implement strStr()</a>
-	</h2>
-    <div class="entry-content">
-    <div class="meta">
-      <div class="date">Published on: 
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-03-27T22:47:45-04:00" pubdate data-updated="true">Mar 27<span>th</span>, 2014</time></div>
-      <div class="tags">Tags: 
-
-
-	<a class='category' href='/blog/categories/coding/'>coding</a>, <a class='category' href='/blog/categories/leetcode/'>leetcode</a>, <a class='category' href='/blog/categories/string/'>string</a>
-
-
-</div>
-    </div>
-		<h3>Algorithm</h3>
-
-<p>brute force, stop matching when the remaining string in source is shorter than target
-There is KMP algorithm, if you are interested. Not implementing here.</p>
-
-<figure class='code'><figcaption><span>Implement strStr()</span><a href='http://oj.leetcode.com/problems/implement-strstr/'>Leetcode Link</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="cm">/**</span>
-</span><span class='line'><span class="cm"> *</span>
-</span><span class='line'><span class="cm"> * Implement strStr().</span>
-</span><span class='line'><span class="cm"> * Returns a pointer to the first occurrence of needle in haystack,</span>
-</span><span class='line'><span class="cm"> * or null if needle is not part of haystack.</span>
-</span><span class='line'><span class="cm"> *</span>
-</span><span class='line'><span class="cm"> * Created by lightsaber on 3/27/14.</span>
-</span><span class='line'><span class="cm"> */</span>
-</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">StrStr</span>
-</span><span class='line'><span class="o">{</span>
-</span><span class='line'>    <span class="kd">public</span> <span class="n">String</span> <span class="nf">strStr</span><span class="o">(</span><span class="n">String</span> <span class="n">haystack</span><span class="o">,</span> <span class="n">String</span> <span class="n">needle</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">haystack</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="n">needle</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span>
-</span><span class='line'>        <span class="o">{</span>
-</span><span class='line'>            <span class="k">if</span><span class="o">(</span><span class="n">haystack</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="n">i</span><span class="o">,</span> <span class="n">i</span> <span class="o">+</span> <span class="n">needle</span><span class="o">.</span><span class="na">length</span><span class="o">()).</span><span class="na">equals</span><span class="o">(</span><span class="n">needle</span><span class="o">))</span>
-</span><span class='line'>            <span class="o">{</span>
-</span><span class='line'>                <span class="k">return</span> <span class="n">haystack</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
-</span><span class='line'>            <span class="o">}</span>
-</span><span class='line'>        <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
 
 
 		
