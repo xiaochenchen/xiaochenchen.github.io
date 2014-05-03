@@ -4,7 +4,7 @@
   <title><![CDATA[lightsaber]]></title>
   <link href="http://xiaochenchen.github.io/atom.xml" rel="self"/>
   <link href="http://xiaochenchen.github.io/"/>
-  <updated>2014-05-03T01:55:55-04:00</updated>
+  <updated>2014-05-03T12:03:25-04:00</updated>
   <id>http://xiaochenchen.github.io/</id>
   <author>
     <name><![CDATA[lightsaber]]></name>
@@ -12,6 +12,49 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[[Octopress] How to setup your octopress blog on a new computer]]></title>
+    <link href="http://xiaochenchen.github.io/blog/2014/05/03/octopress-how-to-setup-your-octopress-blog-on-a-new-computer/"/>
+    <updated>2014-05-03T02:09:52-04:00</updated>
+    <id>http://xiaochenchen.github.io/blog/2014/05/03/octopress-how-to-setup-your-octopress-blog-on-a-new-computer</id>
+    <content type="html"><![CDATA[<h3>What is the problem?</h3>
+
+<p>You are most likely to encouter some error when you try to clone your octopress repo onto a new computer and make a post.</p>
+
+<h3>How to fix it?</h3>
+
+<p>Here is a fix to that. You need to create and link the <code>_deploy</code> directory to <code>master</code> branch.</p>
+
+<ol>
+<li>Clone the repo, switch to the <code>source</code> branch.</li>
+</ol>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>git clone https://github.com/username/username.github.io.git
+</span><span class='line'>git checkout <span class="nb">source</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ol>
+<li>set up the <code>_deploy</code> directory, and link it to the <code>master</code> branch</li>
+</ol>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>mkdir _deploy
+</span><span class='line'><span class="nb">cd </span>_deploy
+</span><span class='line'>git init
+</span><span class='line'>git remote add -t master -f origin https://github.com/username/username.github.io.git
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[[leetcode] Sudoku Solver]]></title>
