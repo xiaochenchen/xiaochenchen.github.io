@@ -4,7 +4,7 @@
   <title><![CDATA[Category: blog | lightsaber]]></title>
   <link href="http://xiaochenchen.github.io/blog/categories/blog/atom.xml" rel="self"/>
   <link href="http://xiaochenchen.github.io/"/>
-  <updated>2014-05-03T12:38:44-04:00</updated>
+  <updated>2014-05-03T12:39:40-04:00</updated>
   <id>http://xiaochenchen.github.io/</id>
   <author>
     <name><![CDATA[lightsaber]]></name>
@@ -22,7 +22,7 @@
 
 <p>You can change this in <code>Options</code> menu, by pressing <code>F9</code>. Select <code>Configuration</code> menu item, which will display <code>Configure Options</code> dialog. You just need to deselect the check box next to <code>Use Internal Edit</code> and <code>Use Internal View</code>.</p>
 
-<h2>How to change the <code>Enter</code> key behavior to view file instead of executing it?</h2>
+<h2>How to change the Enter key behavior to view file instead of executing it?</h2>
 
 <p>Press F9 &ndash;> Select <code>Command</code> menu &ndash;> Select <code>Edit extension file</code> menu item. This will display the extension file. Go to the bottom of the file and change the value of open and view paramter values as shown below.
 <code>vim
