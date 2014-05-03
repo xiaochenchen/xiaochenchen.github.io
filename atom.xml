@@ -4,7 +4,7 @@
   <title><![CDATA[lightsaber]]></title>
   <link href="http://xiaochenchen.github.io/atom.xml" rel="self"/>
   <link href="http://xiaochenchen.github.io/"/>
-  <updated>2014-05-03T12:03:25-04:00</updated>
+  <updated>2014-05-03T12:06:50-04:00</updated>
   <id>http://xiaochenchen.github.io/</id>
   <author>
     <name><![CDATA[lightsaber]]></name>
@@ -26,9 +26,9 @@
 
 <p>Here is a fix to that. You need to create and link the <code>_deploy</code> directory to <code>master</code> branch.</p>
 
-<ol>
+<ul>
 <li>Clone the repo, switch to the <code>source</code> branch.</li>
-</ol>
+</ul>
 
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -38,9 +38,9 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<ol>
+<ul>
 <li>set up the <code>_deploy</code> directory, and link it to the <code>master</code> branch</li>
-</ol>
+</ul>
 
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>

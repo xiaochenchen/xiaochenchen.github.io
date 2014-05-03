@@ -4,7 +4,7 @@
   <title><![CDATA[Category: blog | lightsaber]]></title>
   <link href="http://xiaochenchen.github.io/blog/categories/blog/atom.xml" rel="self"/>
   <link href="http://xiaochenchen.github.io/"/>
-  <updated>2014-05-03T12:03:25-04:00</updated>
+  <updated>2014-05-03T12:06:50-04:00</updated>
   <id>http://xiaochenchen.github.io/</id>
   <author>
     <name><![CDATA[lightsaber]]></name>
@@ -26,7 +26,7 @@
 
 <p>Here is a fix to that. You need to create and link the <code>_deploy</code> directory to <code>master</code> branch.</p>
 
-<ol>
+<ul>
 <li>Clone the repo, switch to the <code>source</code> branch.
 <code>bash
 git clone https://github.com/username/username.github.io.git
@@ -39,7 +39,7 @@ cd _deploy
 git init
 git remote add -t master -f origin https://github.com/username/username.github.io.git
 </code></li>
-</ol>
+</ul>
 
 ]]></content>
   </entry>
